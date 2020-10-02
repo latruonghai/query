@@ -2,6 +2,8 @@ import glob
 import numpy as np
 import re
 import os
+import string
+import random
 
 # Doc noi dung cua tung file text
 # tach tung tu trong file text
@@ -117,7 +119,7 @@ class TruyVan:
         self.query += query
 
     def getQuery(self, folder):
-        file_name = input('Get your file name ')
+        file_name = random_char(4)
         folder_path = './data/text/' + folder
         try:
             os.mkdir(folder_path)
@@ -130,6 +132,10 @@ class TruyVan:
             if len(self.query) == 0 : self.query = 'Không tìm được văn bản phù hợp từ khóa'
             f.write(f'Câu truy vấn của bạn là: {self.tv}\nCó {self.numberOfText} văn bản tìm được:\nVăn bản truy vấn được:\n{self.query}')
             print('File cua ban duoc luu trong thu muc: {}'.format(file_path))
+            
+def random_char(y):
+       return ''.join(random.choice(string.ascii_letters) for x in range(y))
+   
 if __name__ == '__main__':
     tv = "'Trump' or 'quan'"
     data = 'src/*.txt'

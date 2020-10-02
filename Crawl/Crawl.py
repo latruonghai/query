@@ -4,6 +4,8 @@ import pandas as pd
 import os
 import re
 from datetime import *
+import random
+import string
 
 class Crawl:
     def __init__(self, url, numberOfDays):
@@ -86,13 +88,13 @@ class Crawl:
             pass
         print(path_folder)
         self.get_df()
-        filename = input('Please type your file name to make csv file ')
+        filename = random_char(4)
         result = self.dataFrame.to_csv(path_folder + '/' + filename + '.csv',header = True, index = None)
         return result
 
     def get_text(self):
         #print(self.contents)
-        file_name = input('Get your new data file text name ')
+        file_name = random_char(4)
         path_folder = './src/' + self.folderName 
         try:
             os.mkdir(path_folder)
@@ -104,15 +106,20 @@ class Crawl:
                 with open(path,'a') as f:
                     f.write(content)
         print('Get text Done')
-                    
+
+def random_char(y):
+       return ''.join(random.choice(string.ascii_letters) for x in range(y))
+ 
 if __name__ == '__main__':
-    url = 'https://vnexpress.net/thoi-su'
+    #url = 'https://vnexpress.net/thoi-su'
 # Do su dung khoang thoi gian nen khi thay doi trang se + 'temp' vao tempurl
 # Vi du: https://vnexpress.net/thoi-su-p2
 
-    crawl = Crawl(url,tempurl)
-    crawl.get_csv()
-    crawl.get_text()
+    #crawl = Crawl(url,tempurl)
+    #crawl.get_csv()
+    #crawl.get_text()
+    a = random_char(4)
+    print(a)
     
     
 
