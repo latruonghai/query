@@ -123,12 +123,13 @@ class TruyVan:
             os.mkdir(folder_path)
         except FileExistsError:
             pass
-        file_path = './data/text/' + folder+ '/' + file_name + '.txt'
+        file_path = folder_path + '/' + file_name + '.txt'
         #print('Câu truy vấn của bạn là: {}'.format(self.tv))
         self.truyVan()
         with open(file_path,'w+') as f:
             if len(self.query) == 0 : self.query = 'Không tìm được văn bản phù hợp từ khóa'
             f.write(f'Câu truy vấn của bạn là: {self.tv}\nCó {self.numberOfText} văn bản tìm được:\nVăn bản truy vấn được:\n{self.query}')
+            print('File cua ban duoc luu trong thu muc: {}'.format(file_path))
 if __name__ == '__main__':
     tv = "'Trump' or 'quan'"
     data = 'src/*.txt'
