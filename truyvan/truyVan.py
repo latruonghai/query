@@ -14,7 +14,13 @@ class TruyVan:
         self.data = data
         self.query = '' 
         self.numberOfText = 0
-        
+    
+    # Tao tap cac duong dan
+    def filePaths(self, path):
+        return glob.glob(path)
+    
+    # Xay dung tap dictionary chua cac tu can truy van
+    # va tap 'lst_contents' chua tap cac van ban de so sanh
     def parseWord(self, file_paths):
         lst_contents = []
         dictionary = set()
@@ -22,7 +28,7 @@ class TruyVan:
             with open(path,'r') as file:
                 string = file.read()
                 # Loai bo ki tu dac biet
-                content = set(re.sub('[^\w\s\/%]','',string).split())
+                content = set(re.sub('[^\w\s\=/%-]','',string).split())
                 lst_contents.append(content)
                 dictionary.update(content)
         dictionary = list(dictionary)
@@ -37,6 +43,16 @@ class TruyVan:
                     #print('Word: {} in text: {}'.format(content1,index2+1))
                     termDoc[index1,index2] = 1
         return termDoc.astype('uint8').astype('str')
+
+    # Buoc 2.1: Xay dung inverted-files
+    def inverted_files(self, words, texts):
+        inv_files = dict()
+        for index1, word in enumerate(words):
+            inv_files[word] = set()
+            for index2, text in enumerate(texts):
+                if word in text: 
+                    inv_files[word].add(index2)
+        return inv_files
 
     # Buoc 3: Xac dinh cau truy van
     def detQuer(self, truyVan, words, termDoc):
@@ -98,7 +114,7 @@ class TruyVan:
                 index+=1
         return default
 
-
+    # Thuc hien truy van 1 van ban
     def Query(self, clause,file):
         s = ''
         for i in range(len(clause)):
@@ -108,7 +124,8 @@ class TruyVan:
                     s+=f'Văn bản {i+1}: \n{string}\n'
                     self.numberOfText+=1
         return s
-
+    
+    # Buoc 5: Thuc Hien truy van nhieu van ban
     def truyVan(self):
         file_paths = glob.glob(self.data)
         words, texts = self.parseWord(file_paths)
@@ -117,7 +134,8 @@ class TruyVan:
         newClause = self.Logic(clauses, logic)
         query = self.Query(newClause, file_paths)
         self.query += query
-
+        
+    # Buoc 6: Xay dung tap van ban chua du lieu truy van
     def getQuery(self, folder):
         file_name = random_char(4)
         folder_path = './data/text/' + folder
@@ -132,7 +150,8 @@ class TruyVan:
             if len(self.query) == 0 : self.query = 'Không tìm được văn bản phù hợp từ khóa'
             f.write(f'Câu truy vấn của bạn là: {self.tv}\nCó {self.numberOfText} văn bản tìm được:\nVăn bản truy vấn được:\n{self.query}')
             print('File cua ban duoc luu trong thu muc: {}'.format(file_path))
-            
+
+# Lay ten ngau nhien
 def random_char(y):
        return ''.join(random.choice(string.ascii_letters) for x in range(y))
    
