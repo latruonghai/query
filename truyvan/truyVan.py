@@ -55,14 +55,19 @@ class TruyVan:
         return inv_files
 
     # Buoc 3: Xac dinh cau truy van
-    def detQuer(self, truyVan, words, termDoc):
-        #truyVan = "'Trump' and 'Biden'"
+    def defTerm(self):
         pattern1 = "'(\w+)"
         # Lay Logic
         pattern2 = '([oOAaxXnN])\w+\s'
-        terms = re.findall(pattern1, truyVan)
-        logic = re.findall(pattern2,truyVan)
+        terms = re.findall(pattern1, self.tv)
+        logic = re.findall(pattern2,self.tv)
         logic = [s.capitalize() for s in logic]
+        return terms, logic
+    
+    # Xac dinh tap luan ly
+    def detQuer(self, words, termDoc):
+        #truyVan = "'Trump' and 'Biden'"
+        terms, logic = self.defTerm()
         clauses = []
         #print(logic)
         #print(terms)
@@ -98,19 +103,17 @@ class TruyVan:
                 logi = dic[logic[iLog]]
                 term = clauses[index]
                 if front == 'N':
-                    for i in range(length):
-                        string = default[i] + " "+ logi+" not " + term[i]
-                        #print(string)
-                        default[i] = int(eval(string))
+                    logi += ' not'
                     iLog+=2
                 else:
-                    for i in range(length):
-                        #print(logi)
-                        string = default[i] + " "+ logi+" " + term[i]
-                        #print(string)
-                        default[i] = int(eval(string))
-                    #print(eval(string))
                     iLog+=1
+                for i in range(length):
+                    string = default[i] + " "+logi + ' ' + term[i]
+                        #print(string)
+                    default[i] = int(eval(string))
+                        #print(logi)
+                        #print(string)
+                    #print(eval(string))
                 index+=1
         return default
 
@@ -130,7 +133,7 @@ class TruyVan:
         file_paths = glob.glob(self.data)
         words, texts = self.parseWord(file_paths)
         termDoc = self.termMattrix(words,texts)
-        clauses, logic = self.detQuer(self.tv, words, termDoc)
+        clauses, logic = self.detQuer(words, termDoc)
         newClause = self.Logic(clauses, logic)
         query = self.Query(newClause, file_paths)
         self.query += query
