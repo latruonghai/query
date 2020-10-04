@@ -1,4 +1,4 @@
-from truyVan import TruyVan
+from truyvan.truyVan import TruyVan
 import numpy as np
 
 class BooleanMattrix(TruyVan):
@@ -82,7 +82,6 @@ class BooleanMattrix(TruyVan):
         logic: ['A']
         Will return:
         [0,0,0] """
-        
         
         default = clauses[0].copy()
         index = 1

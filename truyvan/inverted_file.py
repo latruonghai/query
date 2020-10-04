@@ -1,4 +1,4 @@
-from truyVan import TruyVan
+from truyvan.truyVan import TruyVan
 
 class InvertedFile(TruyVan):
     def __init__(self, tv, data):
@@ -25,7 +25,6 @@ class InvertedFile(TruyVan):
                 if word in text: 
                     inv_files[word].add(index2)
         return inv_files
-    
     
     def detQuer(self, words, inv_file):
         """ detQuer(words, termDoc) to determine the word in set(words) which is
@@ -72,13 +71,11 @@ class InvertedFile(TruyVan):
         stop = len(clause)
         numOfAllText = len(self.file_paths) 
         allText = {i for i in range(numOfAllText)}
-        #print('Num', self.numberOfText)
         while True:
             
             if index == stop:
                 break
             else:
-                
                 try:
                     front = logic[iLog+1]
                 except:
@@ -96,7 +93,6 @@ class InvertedFile(TruyVan):
                     default = default.symmetric_difference(term)
                 index+=1
                 iLog+=1
-        print(default)
         return list(default)
     
     def Query(self, clause,file):
@@ -112,14 +108,13 @@ class InvertedFile(TruyVan):
         s: string of represent the text found out"""
         
         s = ''
-        print(clause)
         for i in clause:
-            print(i)
             with open(file[i],'r') as f:
                 string = f.read()
                 s+= f'Văn bản {i+1}: \n{string}\n'
                 self.numberOfText+=1
         return s
+
 if __name__ == "__main__":
     tv = "'Trump' and 'Biden' and not 'Trung'"
     data = '../datas/*.txt'

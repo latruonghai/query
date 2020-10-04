@@ -143,7 +143,7 @@ class TruyVan:
         """
         
         file_name = random_char(4)
-        folder_path = '../data/text/' + folder
+        folder_path = './data/text/' + folder
         try:
             os.mkdir(folder_path)
         except FileExistsError:
