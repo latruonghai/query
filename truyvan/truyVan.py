@@ -14,14 +14,38 @@ class TruyVan:
         self.data = data
         self.query = '' 
         self.numberOfText = 0
+        self.file_paths = self.filePaths(data)
     
     # Tao tap cac duong dan
     def filePaths(self, path):
+        """ To find the files in path:
+        Example: in 'data' folder have ['a.txt', 'b.txt', 'c.txt']
+        filePaths function will return the list of these name of file
+        --------------
+        Parameters:
+        path: the path link to the folder where you want to find out the files 
+        --------------
+        Return:
+        file_paths: list of files in the folder path"""
         return glob.glob(path)
     
     # Xay dung tap dictionary chua cac tu can truy van
     # va tap 'lst_contents' chua tap cac van ban de so sanh
+    
     def parseWord(self, file_paths):
+        """ Parse the Words in Text in Split it into simple Word:
+        Example: the text: 'Hello, My Name is Hai.' will be parsed and
+        return the list of word: ['Hello', 'My', 'Name', 'is', 'Hai']
+        --------------
+        Parameters:
+        file_paths: the list of file txt
+        --------------
+        
+        Return:
+        dictionary: list of Words in text
+        --------------
+        lst_contents: list of texts  """
+        
         lst_contents = []
         dictionary = set()
         for path in file_paths:
@@ -35,27 +59,16 @@ class TruyVan:
         return (dictionary, lst_contents)
 
     # Buoc 2: xay dung ma tran Term-Document
-    def termMattrix(self, words,texts):
-        termDoc = np.zeros((len(words),len(texts)))
-        for index1, word in enumerate(words):
-            for index2, text in enumerate(texts):
-                if word in text:
-                    #print('Word: {} in text: {}'.format(content1,index2+1))
-                    termDoc[index1,index2] = 1
-        return termDoc.astype('uint8').astype('str')
-
-    # Buoc 2.1: Xay dung inverted-files
-    def inverted_files(self, words, texts):
-        inv_files = dict()
-        for index1, word in enumerate(words):
-            inv_files[word] = set()
-            for index2, text in enumerate(texts):
-                if word in text: 
-                    inv_files[word].add(index2)
-        return inv_files
-
-    # Buoc 3: Xac dinh cau truy van
+    def getTerm(self, words,texts):
+        pass
+    
     def defTerm(self):
+        """ Determine the term of word in query sentences and 
+        return two of variable:
+        ---------
+        terms: include the simple words
+        ---------
+        logic: include the simple operator"""
         pattern1 = "'(\w+)"
         # Lay Logic
         pattern2 = '([oOAaxXnN])\w+\s'
@@ -66,82 +79,71 @@ class TruyVan:
     
     # Xac dinh tap luan ly
     def detQuer(self, words, termDoc):
-        #truyVan = "'Trump' and 'Biden'"
-        terms, logic = self.defTerm()
-        clauses = []
-        #print(logic)
-        #print(terms)
-        for term in terms:
-            try:
-                index = words.index(term)
-                query = termDoc[index,:]
-                clauses.append(query)
-                #print(query)
-            except:
-                print(f'Error! The Word \'{term}\' is not in the query')
-                clauses.append(np.zeros((1,len(file_paths))).astype('uint8').astype('str')[0])
-        return clauses, logic
-        #print(clauses)
-
+        """ detQuer(words, termDoc) to determine the word in set(words) which is
+        used to query
+        
+        Parameters:
+        ------------
+        words: the list of words included in the texts
+        ------------
+        termDoc: if you want to get Logic with Inverted file: termDoc is the sets of words
+        included in the texts
+        Or: if you want to get Logic with Boolean: termDoc is the np.array()
+        -------------
+        Return:
+        -------------
+        clauses: the lists of set() or np.array([]) where the term's in
+        --------------
+        logic: the list includes simple operators
+        """
     # Buoc 4: Xay Dung Luan Ly
     def Logic(self, clauses, logic):
-        default = clauses[0].copy()
-        index = 1
-        iLog = 0
-        stop = len(clauses)
-        length = len(default)
-        dic = {'A': 'and', 'O': 'or', 'X': '^'}
-        while True:
-            if index == stop:
-                break
-            else:
-                try:
-                    front = logic[iLog+1]
-                except:
-                    front = ''
-                #print(front)
-                logi = dic[logic[iLog]]
-                term = clauses[index]
-                if front == 'N':
-                    logi += ' not'
-                    iLog+=2
-                else:
-                    iLog+=1
-                for i in range(length):
-                    string = default[i] + " "+logi + ' ' + term[i]
-                        #print(string)
-                    default[i] = int(eval(string))
-                        #print(logi)
-                        #print(string)
-                    #print(eval(string))
-                index+=1
-        return default
-
+        """ Get the Logic and return the list of result
+        include the information which show where the words
+        are included """
+        
     # Thuc hien truy van 1 van ban
     def Query(self, clause,file):
-        s = ''
-        for i in range(len(clause)):
-            if (clause[i] == '1'):
-                with open(file[i],'r') as f:
-                    string = f.read()
-                    s+=f'Văn bản {i+1}: \n{string}\n'
-                    self.numberOfText+=1
-        return s
+        """ Query a text
+        
+        Parameters: 
+        clause: the list of clauses which include the word used to
+        query. It can be a list of set() or  a np.array([]) 
+        ---------------
+        file: the file name you want to query in it
+        
+        Return:
+        s: string of represent the text found out"""
+        
+        # s = ''
+        # for i in range(len(clause)):
+        #     if (clause[i] == '1'):
+        #         with open(file[i],'r') as f:
+        #             string = f.read()
+        #             s+=f'Văn bản {i+1}: \n{string}\n'
+        #             self.numberOfText+=1
+        # return s
     
     # Buoc 5: Thuc Hien truy van nhieu van ban
     def truyVan(self):
-        file_paths = glob.glob(self.data)
-        words, texts = self.parseWord(file_paths)
-        termDoc = self.termMattrix(words,texts)
+        """ Query a number of texts in data folder """
+        words, texts = self.parseWord(self.file_paths)
+        termDoc = self.getTerm(words,texts)
         clauses, logic = self.detQuer(words, termDoc)
         newClause = self.Logic(clauses, logic)
-        query = self.Query(newClause, file_paths)
+        query = self.Query(newClause, self.file_paths)
         self.query += query
         
     # Buoc 6: Xay dung tap van ban chua du lieu truy van
     def getQuery(self, folder):
+        """ Get the data of the '*.txt' files of the texts Queried 
+        
+        Parameters:
+        folder: the name of folder you want to save it in
+        """
+        
         file_name = random_char(4)
-        folder_path = './data/text/' + folder
+        folder_path = '../data/text/' + folder
         try:
             os.mkdir(folder_path)
         except FileExistsError:
@@ -162,6 +164,7 @@ if __name__ == '__main__':
     tv = "'Trump' or 'quan'"
     data = 'src/*.txt'
     TV = TruyVan(tv, data)
+    #a = TV.
     TV.getQuery()
     
 
