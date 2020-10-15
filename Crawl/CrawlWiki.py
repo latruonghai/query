@@ -2,9 +2,10 @@ from Crawl import Crawl, random_char
 
 class CrawlWiki(Crawl):
     
-    def __init__(self, url):
+    def __init__(self, url = 'https://vi.wikipedia.org/wiki/Wikipedia'):
+        self.pattern = 'https?:\/\/vi\.(wikipedia)\.org\/wiki\/(\w+)'
         super().__init__(url)
-        self.folderName = 'Wikipedia'
+        #self.containFolder = 'Wikipedia'
     def findH2(self, text, lens, contents):
         i = lens[0] +1
         l = lens[1]
@@ -31,7 +32,6 @@ class CrawlWiki(Crawl):
             if i == l:
                 break
             else:
-                temp = []
                 kw = contents[i].find(class_ = 'mw-headline')
                 if kw != None:
                     text = kw.text
@@ -46,6 +46,7 @@ class CrawlWiki(Crawl):
                 i+=1
                 self.contents.append(text)
 if __name__ == "__main__":
-    cr = CrawlWiki('https://vi.wikipedia.org/wiki/Du_l%E1%BB%8Bch_Vi%E1%BB%87t_Nam')
+    cr = CrawlWiki('https://vi.wikipedia.org/wiki/T%C3%A0o_Th%C3%A1o')
+    #print(cr.folderContain)
     cr.letCrawl()
     cr.get_text()

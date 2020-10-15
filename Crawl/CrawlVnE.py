@@ -5,9 +5,10 @@ from datetime import *
 class CrawlVnE(Crawl):
     
     def __init__(self, url, numberOfDays):
+        self.pattern = 'https?:\/\/(vnexpress)\.net\/(\w+-\w+)'
         super().__init__(url)
-        self.folderName = re.match('https?:\/\/vnexpress\.net\/(\w+-\w+)',url).groups()[0]
         self.numberOfDays = numberOfDays
+        #self.containFolder = 'VnExpress'
     
     def letCrawl(self):
         """ Crawl the data on 'vnexpress.net for a period days
