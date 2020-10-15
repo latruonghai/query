@@ -1,4 +1,4 @@
-from Crawl import Crawl, random_char
+from Crawl.Crawl import *
 import re
 from datetime import *
 
@@ -45,7 +45,6 @@ class CrawlVnE(Crawl):
                 title = soup.find('h1',class_ = 'title-detail')
                 contents = soup.findAll('p',class_ = 'Normal')
                 texts = " ".join([content.text for content in contents])
-                self.contents.append(texts)
                 if title !=None:
                     dates = soup.find('span', class_= 'date').text
                     datestring= re.search(pattern,dates).group()
@@ -55,8 +54,9 @@ class CrawlVnE(Crawl):
                     if (d_stamp<lmon_stamp):
                         out = True
                         break
-                        
-                    titles.append(title.text)
+                    title_text = title.text
+                    self.contents.append(title_text +'\n' + texts)
+                    titles.append(title_text)
                     Date.append(dates)
                     src.append(srcs)
             if out:
@@ -67,9 +67,9 @@ class CrawlVnE(Crawl):
         return [titles, Date, src]
     
 if __name__ == "__main__":
-    url = 'https://vnexpress.net/the-gioi'
-    cr = CrawlVnE(url, 1)
+    url = 'https://vnexpress.net/khoa-hoc'
+    cr = CrawlVnE(url, 30)
     
-    cr.getCrawlData(header = ['titles', 'Date', 'src' ])
+    cr.getCrawlData(header = ['Titles', 'Dates', 'Sources' ])
     
         

@@ -1,4 +1,4 @@
-from Crawl import Crawl, random_char
+from Crawl.Crawl import *
 
 class CrawlWiki(Crawl):
     
@@ -45,8 +45,14 @@ class CrawlWiki(Crawl):
                         continue
                 i+=1
                 self.contents.append(text)
+def get_Keyword(string):
+    return string.replace(' ', '_')
 if __name__ == "__main__":
-    cr = CrawlWiki('https://vi.wikipedia.org/wiki/T%C3%A0o_Th%C3%A1o')
+    string = input("Nhap vao tu khoa can tim kiem ")
+    keyword = get_Keyword(string)
+    url = 'https://vi.wikipedia.org/wiki/' + keyword
+    print(url)
+    cr = CrawlWiki(url)
     #print(cr.folderContain)
     cr.letCrawl()
     cr.get_text()

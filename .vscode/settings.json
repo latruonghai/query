@@ -1,0 +1,16 @@
+{
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./18520698_BTInvertedFile",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": false,
+    "python.pythonPath": "/home/lahai/anaconda3/envs/foo/bin/python",
+    "python.testing.pytestArgs": [
+        "18520698_BTInvertedFile"
+    ]
+}

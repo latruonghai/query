@@ -12,8 +12,8 @@ class Crawl:
         self.url = url
         self.contents  = []
         self.folderNameParent, self.folderNameChild = get_name(self.pattern, self.url)
-        self.srcFolder = '../src/' + self.folderNameParent
-        self.dataFolder = '../data/CSV/' + self.folderNameParent
+        self.srcFolder = '/media/lahai/DATA/Study/DAI HOC/NamBa/TruyVan/Tuan4/src/' + self.folderNameParent
+        self.dataFolder = '/media/lahai/DATA/Study/DAI HOC/NamBa/TruyVan/Tuan4/data/CSV/' + self.folderNameParent
         create_folder(self.srcFolder, self.dataFolder)
         self.srcFolder += '/' + self.folderNameChild
         self.dataFolder += '/' + self.folderNameChild

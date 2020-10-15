@@ -1,29 +1,34 @@
-from Crawl.Crawl import *
-from truyvan.boolean import BooleanMattrix
-from truyvan.inverted_file import InvertedFile
-import time
+from Crawl.CData import CData
+from truyvan.QData import QData
+import re
 
-class QData:
-    def __init__(self, boolean = 1):
+class CQData:
+    def __init__(self, url = 'https://vi.wikipedia.org/wiki/Wikipedia', tv = " ", numberOfDay = 0, mode = 0, boolean = 0):
+        self.url = url
+        self.tv = tv
+        self.numberOfDay = numberOfDay
+        self.mode = mode
         self.boolean = boolean
-        
-    def getDataQueries(self, fd_name, tv, data):
-        if self.boolean == 1:
-            tv = BooleanMattrix(self.tv, self.data)
-        else:
-            tv = InvertedFile(self.tv, self.data)
-        tv.getQuery(fd_name)
-        
-    def getCrawl(self, url, numb):
-        cr = Crawl(url, numb)
-        cr.get_csv()
-        cr.get_text()
-        return cr.folderName
     
-    def crawl_query(self, url, numb):
-        fd_name = self.getCrawl(url, numb)
-        self.getDataQueries(fd_name)
+    def askForDoing(self):
+        self.tv = analyze_Word(input("Nhập vào câu truy vấn của bạn "))
+        if self.mode ==0:
+            self.url = 'https://vi.wikipedia.org/wiki/' + get_Keyword(input("Nhập từ khóa cần tìm của bạn vào đây: "))
+        else:
+            self.url = input('Nhập đường dẫn trang báo Vnexpress của bạn vào đây: ')
+        if self.boolean == 0:
+            print("Bạn sẽ được truy vấn dưới dạng Inverted Files! ")
+        else:
+            print('Bạn sẽ được truy vấn dưới dạng Boolean Retrieval! ')
+    def letDoIt(self):
+        self.askForDoing()
+        cd = CData(self.url,self.mode, self.numberOfDay)
+        folderNameParent, folderNameChild = cd.Crawler()
+        qd = QData(self.tv, cd.sourceFolder + '/*.txt', self.boolean)
+        qd.getDataQueries(folderNameChild)
         
+def get_Keyword(string):
+    return string.replace(' ', '_')  
 def analyze_Word(word):
     pattern = '[^\w\s\=/%-]'
     truyVan = re.sub(pattern,'',word).split()
@@ -33,34 +38,5 @@ def analyze_Word(word):
     return ' and '.join(truyVan)
 
 if __name__ == '__main__':
-    
-    tt = 'Trịnh trả lời vòng vò'
-    tv = analyze_Word(tt)
-    #tv = "'Trump' and 'Biden' and not 'Trung'"
-    #tv = "'đồng' and 'Hội' or not 'gia'"
-    url = 'https://vnexpress.net/phap-luat'
-    # Do su dung khoang thoi gian nen khi thay doi trang se + 'temp' vao tempurl
-    # Vi du: https://vnexpress.net/thoi-su-p2
-
-    # tempurl = 'https://vnexpress.net/thoi-su-p'
-    crawl = Crawl(url, 30)
-    fd_name = crawl.folderName
-    data = 'src/' + fd_name + '/*.txt'
-    #data = './datas/*.txt'
-    #print(crawl.folderName)
-    TV = BooleanMattrix(tv, data)
-    tv2 = InvertedFile(tv, data)
-    #crawl.get_csv()
-    #crawl.get_text()
-    start = time.time()
-    TV.getQuery(fd_name)
-    end = time.time() - start
-    print('Boolean ',end)
-    start1 = time.time()
-    tv2.getQuery(fd_name)
-    end1 = time.time() - start1
-    print('Inverted ',end1)
-    #url = 'https://vnexpress.net/giao-duc'
-    #data = 'src/' + fd_name + '/*.txt'
-    #qd =QData(tv, data)
-    #qd.crawl_query(url, 30)
+    cq = CQData()
+    cq.letDoIt()
