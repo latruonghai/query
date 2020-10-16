@@ -7,7 +7,33 @@ class CData:
         self.url = url
         self.mode = mode 
         self.numberOfDate = numberOfDate
+    
+    def Info(self):
+        
+        """ 
+        Get info of this Data
+        
+        Return:
+        srcFolder: source folder, where you do to Query
+        --------
+        folderNameChild: The folder to save
+        
+         """
+        if self.mode == 1:
+            cr = CrawlVnE(self.url, self.numberOfDate)
+        else:
+            cr = CrawlWiki(self.url)
+        return (cr.srcFolder, cr.folderNameChild)
     def Crawler(self):
+        """ 
+        Crawl the content
+        
+        Return:
+        folderNameParent (string): link to the folder containing main data folder
+        ---------
+        folderNameParent (string): link to the main data folder
+        
+         """
         if self.mode == 1:
             cr = CrawlVnE(self.url, self.numberOfDate)
             cr.getCrawlData(header = ['Titles', 'Dates', 'Sources'])
@@ -15,8 +41,8 @@ class CData:
             cr = CrawlWiki(self.url)
             cr.letCrawl()
             cr.get_text()
-        self.sourceFolder = cr.srcFolder
-        return cr.folderNameParent, cr.folderNameChild
+        return self.Info()
+    
 if __name__ == "__main__":
     cd = CData()
     folderNameParent, folderNameChild = cd.Crawler()
