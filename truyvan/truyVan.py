@@ -154,7 +154,7 @@ class TruyVan:
         with open(file_path,'w+') as f:
             if len(self.query) == 0 : self.query = 'Không tìm được văn bản phù hợp từ khóa'
             f.write(f'Câu truy vấn của bạn là: {self.tv}\nCó {self.numberOfText} văn bản tìm được:\nVăn bản truy vấn được:\n{self.query}')
-            print('File cua ban duoc luu trong thu muc: {}'.format(file_path))
+            print('File truy vấn của bạn đã được lưu trong thư mục: {} dưới dạng text!'.format(file_path))
 
 # Lay ten ngau nhien
 def random_char(y):

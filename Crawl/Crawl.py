@@ -37,7 +37,7 @@ class Crawl:
         filename = random_char(4)
         path_folder = self.dataFolder + '/' + filename + '.csv'
         result = df.to_csv(path_folder,header = True, index = None)
-        print(f'Your file was saved in {path_folder}')
+        print(f'File đề mục của bạn đã được lưu trong thư mục : {path_folder}')
         return result
 
     def get_text(self):
@@ -49,7 +49,7 @@ class Crawl:
             path = self.srcFolder + '/' + file_name +'-'+ str(i) + '.txt'
             with open(path,'a') as f:
                 f.write(self.contents[i])
-        print('Get text Done, Your File is saved in: {}'.format(path))
+        print('File dữ liệu thông tin của bạn đã được Crawl về từ trang web {} trong thư mục: {}'.format(self.url, path))
 
     def getCrawlData(self, header = None):
         data = self.letCrawl()

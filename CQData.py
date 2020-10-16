@@ -3,16 +3,17 @@ from truyvan.QData import QData
 import re
 
 class CQData:
-    def __init__(self, url = 'https://vi.wikipedia.org/wiki/Wikipedia', tv = " ", numberOfDay = 0, mode = 0, boolean = 0):
+    def __init__(self, url = 'https://vi.wikipedia.org/wiki/Wikipedia', tv = " ", numberOfDay = 0, web = 0, boolean = 0):
         self.url = url
         self.tv = tv
         self.numberOfDay = numberOfDay
-        self.mode = mode
+        self.web = web
         self.boolean = boolean
     
     def askForDoing(self):
         self.tv = analyze_Word(input("Nhập vào câu truy vấn của bạn "))
-        if self.mode ==0:
+        self.web = input("Bạn muốn lấy dữ liệu từ 2 trang web nào?\nCó 2 lựa chọn cho bạn:\n \t- Chọn '0' nếu bạn muốn lấy dữ liệu từ Wikipedia \n\t- Chọn '1' nếu bạn muốn lấy dừ liệu từ VnExpress")
+        if self.web =='0':
             self.url = 'https://vi.wikipedia.org/wiki/' + get_Keyword(input("Nhập từ khóa cần tìm của bạn vào đây: "))
         else:
             self.url = input('Nhập đường dẫn trang báo Vnexpress của bạn vào đây: ')
@@ -22,7 +23,7 @@ class CQData:
             print('Bạn sẽ được truy vấn dưới dạng Boolean Retrieval! ')
     def letDoIt(self):
         self.askForDoing()
-        cd = CData(self.url,self.mode, self.numberOfDay)
+        cd = CData(self.url,self.web, self.numberOfDay)
         folderNameParent, folderNameChild = cd.Crawler()
         qd = QData(self.tv, cd.sourceFolder + '/*.txt', self.boolean)
         qd.getDataQueries(folderNameChild)
