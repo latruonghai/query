@@ -19,7 +19,7 @@ class CData:
         folderNameChild: The folder to save
         
          """
-        if self.mode == 1:
+        if self.mode == '1':
             cr = CrawlVnE(self.url, self.numberOfDate)
         else:
             cr = CrawlWiki(self.url)
@@ -34,7 +34,7 @@ class CData:
         folderNameParent (string): link to the main data folder
         
          """
-        if self.mode == 1:
+        if self.mode == '1':
             cr = CrawlVnE(self.url, self.numberOfDate)
             cr.getCrawlData(header = ['Titles', 'Dates', 'Sources'])
         else:
