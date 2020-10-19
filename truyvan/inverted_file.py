@@ -5,7 +5,10 @@ class InvertedFile(TruyVan):
         super().__init__(tv, data)
     
     def getTerm(self, words, texts):
-        """ Build the 'Term-Mattrix' on behalf of whether
+        
+        """ 
+        
+        Build the 'Term-Mattrix' on behalf of whether
         the word in the text:
         Example: {1,2,3} means the word is
         in text with order: 1, 2, 3
@@ -16,23 +19,30 @@ class InvertedFile(TruyVan):
         texts: the list of texts
         
         Return:
-        inv_files: the dictionary include represent where the word in """
+        inv_files: the dictionary include represent where the word in 
+        """
         
         inv_files = dict()
+        clauses = []
         for index1, word in enumerate(words):
             inv_files[word] = set()
             for index2, text in enumerate(texts):
                 if word in text: 
                     inv_files[word].add(index2)
-        return inv_files
+            clauses.append(inv_files[word])
+        return clauses
     
-    def detQuer(self, words, inv_file):
-        """ detQuer(words, termDoc) to determine the word in set(words) which is
+    ''' def detQuer(self, words, inv_file):
+        
+        """ 
+        detQuer(words, termDoc) to determine the word in set(words) which is
         used to query
         Example: You want to query the word: 'Hello' in text: 'Hello my name is Hai'
         detQuer(word, text) will return the list named clause which include set([0]) meaning
         the word 'Hello' in the first text
+        
          """
+         
         terms, logic = self.defTerm()
         clauses = []
         for term in terms:
@@ -41,10 +51,12 @@ class InvertedFile(TruyVan):
                 clauses.append(setWord)
             except:
                 clauses.append(set())
-        return clauses, logic
+        return clauses, logic '''
     
     def Logic(self, clause, logic):   
-        """ Get the Logic and return the list of result
+        
+        """ 
+        Get the Logic and return the list of result
         include the information which show where the words
         are included
         
@@ -62,7 +74,8 @@ class InvertedFile(TruyVan):
         clauses: [{1,2}, {3}]
         logic: ['O']
         Will return:
-        [1, 2, 3] """
+        [1, 2, 3] 
+        """
         
         default = clause[0].copy()
         #print(default)
@@ -96,7 +109,9 @@ class InvertedFile(TruyVan):
         return list(default)
     
     def Query(self, clause,file):
-        """ Query a text
+        
+        """ 
+        Query a text
         
         Parameters: 
         clause: the list of clauses which include the word used to
@@ -105,7 +120,9 @@ class InvertedFile(TruyVan):
         file: the file name you want to query in it
         
         Return:
-        s: string of represent the text found out"""
+        s: string of represent the text found out
+        
+        """
         
         s = ''
         for i in clause:

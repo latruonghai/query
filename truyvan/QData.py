@@ -8,6 +8,7 @@ class QData:
         self.tv = tv
         self.data = data
     def getDataQueries(self, fd_name):
+        
         if self.boolean == 1:
             tv = BooleanMattrix(self.tv, self.data)
         else:
@@ -15,9 +16,21 @@ class QData:
         tv.getQuery(fd_name)
         
 def analyze_Word(word):
+    
+    """ 
+    To analyze the word to Query
+    
+    Return:
+    The word after converted (string)
+        
+    Example:
+    The word 'La Truong Hai' will return '"La" and "Truong" and "Hai"'
+     """
+    
     pattern = '[^\w\s\=/%-]'
     truyVan = re.sub(pattern,'',word).split()
     #truyVan = word.split()
+    
     for i in range(len(truyVan)):
         truyVan[i] = "'"+truyVan[i]+"'"
     return ' and '.join(truyVan)

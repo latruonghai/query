@@ -18,7 +18,7 @@ class BooleanMattrix(TruyVan):
         
         Return:
         inv_files: np.array() include represent where the word in """
-        
+        print("Day la boolean")
         termDoc = np.zeros((len(words),len(texts)))
         for index1, word in enumerate(words):
             for index2, text in enumerate(texts):
@@ -28,7 +28,7 @@ class BooleanMattrix(TruyVan):
         return termDoc.astype('uint8').astype('str')
     
    
-    def detQuer(self, words, termDoc):
+    ''' def detQuer(self, words, termDoc):
         """ detQuer(words, termDoc) to determine the word in set(words) which is
         used to query
         Example: You want to query the word: 'Hello' in text: 'Hello my name is Hai'
@@ -59,7 +59,7 @@ class BooleanMattrix(TruyVan):
             except:
                 print(f'Error! The Word \'{term}\' is not in the query')
                 clauses.append(np.zeros((1,len(self.file_paths))).astype('uint8').astype('str')[0])
-        return clauses, logic
+        return clauses, logic '''
     
     
     def Logic(self, clauses, logic):

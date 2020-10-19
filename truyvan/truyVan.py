@@ -63,12 +63,19 @@ class TruyVan:
         pass
     
     def defTerm(self):
+    
         """ Determine the term of word in query sentences and 
         return two of variable:
         ---------
         terms: include the simple words
         ---------
-        logic: include the simple operator"""
+        logic: include the simple operator
+        
+        Example: A sentence '"Hai" and "Huy"' will return
+        logic = ['and']
+        ------
+        term = ['Hai', 'Huy'] """
+        
         pattern1 = "'(\w+)"
         # Lay Logic
         pattern2 = '([oOAaxXnN])\w+\s'
@@ -127,9 +134,11 @@ class TruyVan:
     # Buoc 5: Thuc Hien truy van nhieu van ban
     def truyVan(self):
         """ Query a number of texts in data folder """
+        print("Truy van ne")
         words, texts = self.parseWord(self.file_paths)
-        termDoc = self.getTerm(words,texts)
-        clauses, logic = self.detQuer(words, termDoc)
+        term, logic = self.defTerm()
+        clauses = self.getTerm(term,texts)
+        #clauses, logic = self.defTerm(words, termDoc)
         newClause = self.Logic(clauses, logic)
         query = self.Query(newClause, self.file_paths)
         self.query += query
