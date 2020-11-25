@@ -6,6 +6,7 @@ import re
 from datetime import *
 import random
 import string
+import json
 
 class Crawl:
     def __init__(self, url):
@@ -61,7 +62,7 @@ class Crawl:
         """ Crawl the data """
         pass
     
-    def get_df(self, header, data ):
+    def get_df(self, header, data, force_Dataframe = 1):
         
         """ 
         Get the dataframe to be changed into csv:
@@ -78,7 +79,10 @@ class Crawl:
         l = len(data) if len(data) < len(header) else len(header)
         for i in range(l):
             papers[header[i]] = data[i]
+        if force_Dataframe:
             dataFrame = pd.DataFrame(papers)
+        else:
+            dataFrame = papers
         return dataFrame
     
     def get_csv(self, df):
@@ -118,7 +122,18 @@ class Crawl:
                 f.write(self.contents[i])
         print('File dữ liệu thông tin của bạn đã được Crawl về từ trang web {} trong thư mục: {}'.format(self.url, path))
 
-    def getCrawlData(self, header = None):
+    def get_Json(self, jsonFile):
+        """ 
+        Get the '.json' files base on self.content
+         """
+        filename = random_char(4)
+        path_folder = self.dataFolder + '/' + filename + '.json'
+        with open(path_folder, 'w+') as file:
+            json.dump(jsonFile,file,ensure_ascii = False)
+        #result = df.to_json(path_folder, force_ascii = False)
+        print(f'File đề mục của bạn đã được lưu trong thư mục : {path_folder}')
+        #return result
+    def getCrawlData(self, header = None, csv =0):
         
         """ 
         Crawl Data
@@ -129,7 +144,9 @@ class Crawl:
          
         data = self.letCrawl()
         df = self.get_df(header, data)
+        #print(df)
         result = self.get_csv(df)
+        
         self.get_text()
         
 def random_char(y):

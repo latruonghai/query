@@ -51,6 +51,8 @@ class CrawlWiki(Crawl):
         """
         
         soup = self.get_page_content(self.url)
+        title = soup.find('h1', class_ = 'firstHeading').text
+        #print(title)
         contents = soup.findAll(('h2', 'p'))
         l = len(contents)
         i = 0
@@ -71,7 +73,8 @@ class CrawlWiki(Crawl):
                         continue
                 i+=1
                 self.contents.append(text)
-                
+        #print(self.contents)
+        return [self.url, title, self.contents]
 def get_Keyword(string):
     return string.replace(' ', '_')
 

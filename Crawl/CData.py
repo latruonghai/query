@@ -39,7 +39,10 @@ class CData:
             cr.getCrawlData(header = ['Titles', 'Dates', 'Sources'])
         else:
             cr = CrawlWiki(self.url)
-            cr.letCrawl()
+            data = cr.letCrawl()
+            header = ['link', 'title', 'paragraphs']
+            df = cr.get_df(header, data, force_Dataframe = 0)
+            cr.get_Json(df, )
             cr.get_text()
         return self.Info()
     

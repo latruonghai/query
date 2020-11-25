@@ -53,12 +53,12 @@ class CQData:
         else:
             self.url = input('Nhập đường dẫn trang báo Vnexpress của bạn vào đây: ')
             self.numberOfDay = int(input("Nhập vào khoảng thời gian bạn muốn Crawl "))
-        
         if self.boolean == 0:
             print("Bạn sẽ được truy vấn dưới dạng Inverted Files! ")
         else:
             print('Bạn sẽ được truy vấn dưới dạng Boolean Retrieval! ')
             
+        
     def Crawl(self, cd):
         
         """ 
@@ -146,5 +146,5 @@ def get_Keyword(string):
 
 
 if __name__ == '__main__':
-    cq = CQData()
+    cq = CQData(boolean= 1 ,web = '1')
     cq.letDoIt()
