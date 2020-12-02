@@ -1,13 +1,16 @@
-from Crawl.CrawlVnE import CrawlVnE
-from Crawl.CrawlWiki import CrawlWiki
-
+from  CrawlVnE import CrawlVnE
+from CrawlTraveloka import CrawlTraveloka
+from CrawlWiki import CrawlWiki
 class CData:
     
-    def __init__(self, url ='https://vi.wikipedia.org/wiki/Wikipedia', mode = 0, numberOfDate = 0):
+    def __init__(self, url ='https://vi.wikipedia.org/wiki/Wikipedia', mode = 0, numberOfDate = 0, numofPage = 0):
         self.url = url
-        self.mode = mode 
-        self.numberOfDate = numberOfDate
-    
+        self.mode = mode
+        if self.mode == '1': 
+            self.numberOfDate = numberOfDate
+        elif self.mode == '2':
+            self.numofPage = numofPage
+            
     def Info(self):
         
         """ 
@@ -21,8 +24,10 @@ class CData:
          """
         if self.mode == '1':
             cr = CrawlVnE(self.url, self.numberOfDate)
-        else:
+        elif self.mode == '0':
             cr = CrawlWiki(self.url)
+        else:
+            cr = CrawlTraveloka(self.url, self.numofPage)
         return (cr.srcFolder, cr.folderNameChild)
     def Crawler(self):
         """ 
@@ -37,16 +42,20 @@ class CData:
         if self.mode == '1':
             cr = CrawlVnE(self.url, self.numberOfDate)
             cr.getCrawlData(header = ['Titles', 'Dates', 'Sources'])
-        else:
+        elif self.mode == '0':
             cr = CrawlWiki(self.url)
             data = cr.letCrawl()
             header = ['link', 'title', 'paragraphs']
             df = cr.get_df(header, data, force_Dataframe = 0)
             cr.get_Json(df, )
             cr.get_text()
+        else:
+            cr = CrawlTraveloka(self.url, self.numofPage)
+            cr.getCrawlData(header = ['Titles', 'Sources'])
         return self.Info()
     
 if __name__ == "__main__":
-    cd = CData()
+    url = 'https://blog.traveloka.com/vn/collection/'
+    cd = CData(url = url, mode = '2', numofPage=1000)
     folderNameParent, folderNameChild = cd.Crawler()
-    print(folderNameParent + '/' + folderNameChild)        
+    print(folderNameParent + '/' + folderNameChild) 

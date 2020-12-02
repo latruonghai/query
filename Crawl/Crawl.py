@@ -32,11 +32,12 @@ class Crawl:
         create_folder: To create the folder.
         
          """
+        #self.pattern = '(\w+)\.(\w+)'
         self.url = url
         self.contents  = []
         self.folderNameParent, self.folderNameChild = get_name(self.pattern, self.url)
-        self.srcFolder = '/media/lahai/DATA/Study/DAI HOC/NamBa/TruyVan/Tuan4/src/' + self.folderNameParent
-        self.dataFolder = '/media/lahai/DATA/Study/DAI HOC/NamBa/TruyVan/Tuan4/data/CSV/' + self.folderNameParent
+        self.srcFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/TruyVan/Tuan4/src/' + self.folderNameParent
+        self.dataFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/TruyVan/Tuan4/data/CSV/' + self.folderNameParent
         create_folder(self.srcFolder, self.dataFolder)
         self.srcFolder += '/' + self.folderNameChild
         self.dataFolder += '/' + self.folderNameChild

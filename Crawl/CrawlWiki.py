@@ -1,4 +1,4 @@
-from Crawl.Crawl import *
+from Crawl import *
 
 class CrawlWiki(Crawl):
     
