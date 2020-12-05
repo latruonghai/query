@@ -1,0 +1,178 @@
+/*******************
+****TAG STYLE*******
+*******************/
+h1, h2{
+	text-align: center;
+	font-family: arial, helvetica, courier;
+/*	display: flex;*/
+	flex-direction:  column;
+}
+.flex{
+	display: flex;
+	flex-direction:  row;
+}
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+	height: 700px;
+	width: 100%;
+}
+img{
+	border: 0;
+	position: relative;
+	float:left;
+}
+.clearfix: after {
+    display: table;
+    clear: block;
+    content: "";
+    overflow: auto;
+    width: 0%;
+    height: 0%;
+}
+.ico{
+	border-top-right-radius: 50%;
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+}
+/**********************
+****TOP-PART***********
+**********************/
+/* Class */
+.top-part{
+	width: 100%;
+	height: 50%;
+	background-color: #1877f2;
+}
+.box-part{
+	width: 100%;
+	height: 100%;
+	background-image: url('https://img2.thuthuatphanmem.vn/uploads/2019/03/02/hinh-nen-powerpoint-xanh-duong-cuc-dep_012324053.jpeg')
+}
+.information-box{
+	width: 55%;
+	height: 100%;
+	float: right;
+	transform: translate(-21%);
+}
+.infor-text{
+	width: 60%;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+.detail-infor{
+	width: 40%;
+	height: inherit;
+	flex:;
+	position: relative;
+	float:left;
+}
+/*Name of Pêrson
+*/
+
+.subject{
+	color: #c70000;
+}
+
+.name{
+	font-family: Verdana, Tahoma, Palation;
+	text-align: center;
+	color: #312b2b;
+}
+.school{
+	height: 20%;
+}
+.people{
+	height: 80%;
+}
+.person{
+	height: 15%;
+	margin-top: 1.5%;
+}
+#mentor{
+	width: 90%;
+	text-align: right;
+	position: relative;
+}
+#school-name1{
+	font-size: 85%;
+	height: 50%;
+	transform: translateY(40%);
+}
+#school-name2{
+	font-size:120%;
+	font-style: normal;
+	height: 50%; 
+}
+/*Logo
+**************
+**********/
+
+.logo{
+	height: 20%;
+	width: 100%;
+	transform: translateY(400%);
+	/*background-color: #f7f7f7;*/
+}
+.logo-img{
+	width: 50%;
+	height: 100%;
+
+	float:left;
+	position: relative;
+}
+.image{
+	height: 100%;
+	width: 80%;
+	position: relative;
+	transform: translateX(10%);	
+	
+
+}
+
+.logo-picture{
+	float: inherit;
+	text-align: center;
+	height: 100%;
+	width: auto;
+	transform: translateX(-25%); 
+	color: #f7f7f7;
+	/*background-color: #f7f7f7;*/
+	border-top-right-radius: 50%;
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	position: relative;
+}
+/*Avatar*/
+
+.avatar{
+	width: 15%;
+	float: right;
+	height: 100%;
+	position: relative;
+}
+
+/*Student Name*/
+
+.student-name, .mentor-name{
+	width: 85%;
+	height: 100%;
+	font-size: 100%;
+	text-align: center;
+	transform: translateY(25%);
+	font-style: italic;
+	font-weight: bold;
+
+}
+.mentor-name{
+	text-align: center;
+	font-family: Tahoma, Palation, Verdana;
+	font-weight: normal;
+}
+	

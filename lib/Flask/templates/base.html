@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Computer Vision Project</title>
+		<meta charset=utf-8>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+		<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/top.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/body.css')}}">
+		<link rel="shortcut icon" href="{{url_for('static', filename='image/favicon.ico')}}" type="/image/x-icon">
+        <link rel="icon" href="{{url_for('static', filename='image/favicon.ico')}}" type="image/x-icon">
+        {%block head%}{% endblock %}
+	</head>
+
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+</html>
