@@ -51,7 +51,7 @@ class CrawlTraveloka(Crawl):
                 titles.append(title)
                 Src.append(source)
             page_num -= 1
-
+        #print(self.contents)
         return [titles, Src]
 
     def getContent(self, source):

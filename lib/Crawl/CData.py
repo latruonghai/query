@@ -6,14 +6,15 @@ from CrawlDulich import CrawlDulich
 
 class CData:
 
-    def __init__(self, url='https://vi.wikipedia.org/wiki/Wikipedia', mode='0', numberOfDate=0, numofPage=0):
+    def __init__(self, url='https://vi.wikipedia.org/wiki/Wikipedia', mode='0', numberOfDate=0, numofPage=0, homepage=1):
         self.url = url
         self.mode = mode
         if self.mode == '1':
             self.numberOfDate = numberOfDate
         elif self.mode == '2':
             self.numofPage = numofPage
-
+        elif self.mode == '3':
+            self.homepage = homepage
     def Info(self):
         """ 
         Get info of this Data
@@ -58,14 +59,13 @@ class CData:
             cr = CrawlTraveloka(self.url, self.numofPage)
             cr.getCrawlData(header=['Titles', 'Sources'])
         else:
-            cr = CrawlDulich(self.url)
+            cr = CrawlDulich(self.url, self.homepage)
             cr.getCrawlData(header=['Titles', 'Sources'])
         return self.Info()
 
 
 if __name__ == "__main__":
-    url = ['DuLich.html', 'DuLich1.html']
-    for u in url:
-        cd = CData(url=u, mode='3')
-        folderNameParent, folderNameChild = cd.Crawler()
-        print(folderNameParent + '/' + folderNameChild)
+    url = 'https://blog.traveloka.com/vn/collection/'
+    cd = CData(url=url, mode='2', homepage=0, numofPage=10)
+    folderNameParent, folderNameChild = cd.Crawler()
+    print(folderNameParent + '/' + folderNameChild)

@@ -46,10 +46,9 @@ class Crawl:
             self.folderNameParent, self.folderNameChild = get_name(
                 self.pattern, self.url)
         self.contents = []
-        self.srcFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/TruyVan/Tuan4/src/' + \
-            self.folderNameParent
-        self.dataFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/TruyVan/Tuan4/data/CSV/' + \
-            self.folderNameParent
+        print(self.folderNameParent, self.folderNameChild)
+        self.srcFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/src/' + self.folderNameParent
+        self.dataFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/data/CSV/' + self.folderNameParent
         create_folder(self.srcFolder, self.dataFolder)
         self.srcFolder += '/' + self.folderNameChild
         self.dataFolder += '/' + self.folderNameChild
@@ -134,6 +133,7 @@ class Crawl:
             path = self.srcFolder + '/' + file_name + '-' + str(i) + '.txt'
             with open(path, 'a') as f:
                 f.write(self.contents[i])
+            #print(path)
         print('File dữ liệu thông tin của bạn đã được Crawl về từ trang web {} trong thư mục: {}'.format(
             self.url, path))
 
