@@ -4,12 +4,22 @@
 h1, h2{
 	text-align: center;
 	font-family: arial, helvetica, courier;
+	/*margin-top: 2px;*/
 /*	display: flex;*/
 	flex-direction:  column;
+}
+h2{
+	margin-top: 20px !important;
 }
 .flex{
 	display: flex;
 	flex-direction:  row;
+}
+p{
+	margin: 20px;
+	/*margin-bottom: 25px;*/
+	text-align: center;
+	top: 25%;
 }
 *{
 	padding: 0;
@@ -17,8 +27,17 @@ h1, h2{
 	box-sizing: border-box;
 }
 body{
-	height: 700px;
+	height: 850px;
 	width: 100%;
+}
+aside {
+  width: 30%;
+  padding-left: 15px;
+  /*margin-left: 15px;*/
+  float: right;
+  font-style: italic;
+  background-color: lightgray;
+  border-radius: 10px;
 }
 img{
 	border: 0;
@@ -45,62 +64,78 @@ img{
 /* Class */
 .top-part{
 	width: 100%;
-	height: 50%;
+	height: 40%;
 	background-color: #1877f2;
 }
 .box-part{
 	width: 100%;
 	height: 100%;
-	background-image: url('https://img2.thuthuatphanmem.vn/uploads/2019/03/02/hinh-nen-powerpoint-xanh-duong-cuc-dep_012324053.jpeg')
+	background-image: url('../image/anh2.jpg');
+	background-size: 36.2%;
 }
-.information-box{
-	width: 55%;
-	height: 100%;
-	float: right;
-	transform: translate(-21%);
-}
-.infor-text{
-	width: 60%;
+.tool-box{
+	width: 34%;
 	height: 100%;
 	float: left;
-	position: relative;
+}
+.button-box{
+	height: 15%;
+	width: 100%;
+	margin-top: 5px;
+}
+.information-box{
+	width: 40%;
+	height: 100%;
+	float: right;
+	/*transform: translate(-21%);*/
 }
 .detail-infor{
-	width: 40%;
+	width: 26%;
 	height: inherit;
 	flex:;
 	position: relative;
 	float:left;
+	transform: translateX(8%);
+}
+.infor-text{
+	width: 80%;
+	height: 100%;
+	float: right;
+	position: relative;
+	transform: translateX(-10%);
 }
 /*Name of Pêrson
 */
 
 .subject{
-	color: #c70000;
+	color: #f1ff38;
+	margin-top: 5px;
 }
 
 .name{
 	font-family: Verdana, Tahoma, Palation;
 	text-align: center;
-	color: #312b2b;
+	color: #f9dcdc;
 }
 .school{
 	height: 20%;
 }
 .people{
-	height: 80%;
+	height: 60%;
+	transform: translate(10%, 68%); 
 }
 .person{
-	height: 15%;
+	height: 20%;
 	margin-top: 1.5%;
 }
 #mentor{
-	width: 90%;
+	/*width: 90%;*/
+	font-size: 125%;
 	text-align: right;
 	position: relative;
 }
 #school-name1{
-	font-size: 85%;
+	font-size: 100%;
 	height: 50%;
 	transform: translateY(40%);
 }
@@ -116,8 +151,9 @@ img{
 .logo{
 	height: 20%;
 	width: 100%;
-	transform: translateY(400%);
+	transform: translate(13%,0);
 	/*background-color: #f7f7f7;*/
+	/*top: 60%;*/
 }
 .logo-img{
 	width: 50%;
@@ -140,7 +176,7 @@ img{
 	text-align: center;
 	height: 100%;
 	width: auto;
-	transform: translateX(-25%); 
+	/*transform: translateX(-25%); */
 	color: #f7f7f7;
 	/*background-color: #f7f7f7;*/
 	border-top-right-radius: 50%;
@@ -176,3 +212,17 @@ img{
 	font-weight: normal;
 }
 	
+/*Button*/
+.btn-confirm,.picture-name,.browse-picture, .btn-transport, .tool-button{
+	display: inline-block;
+	border: none;
+	padding: 5px 10px;
+	text-align: left;
+	border: 0.5px solid;
+	border-radius: 5px;
+	background-color: #fff;
+	border-color: #b1b1b3;
+	cursor: pointer;
+
+}
+

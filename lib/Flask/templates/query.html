@@ -1,0 +1,153 @@
+{%extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<!-- <meta charset=utf-8> -->
+	<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
+	<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css"> -->
+	{%block head%}
+	<title>Information Retrieval Project</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/top.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/IR/body.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/IR/footer.css">
+	<link rel="shortcut icon" href="../static/image/favicon.ico" type="/image/x-icon">
+	<link rel="icon" href="../static/image/favicon.ico" type="image/x-icon">
+	{%endblock%}
+</head>
+
+<body>
+	{%block body%}
+	<div class="part-body">
+		<div class="retrieval-area">
+			<div class="search-area">
+				<div class="logo-search">
+					<img class="logo-search-picture" src="../static/image/search-logo.png">
+				</div>
+				<div class="search-place">
+					<div class="search-box">
+						<form method="post", action='/IR'>
+							<input class="retrieval" type="text-name" name="search-box-name" placeholder="Search">
+						</form>
+					</div>
+					<div class="confirm">
+						<form metho="post", action = '/IR'>	
+							<button class="btn-confirm" name="search-btn">Search</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="display-information">
+			<aside class="introduction">
+				<h2> Thông tin thêm </h2>
+				<p id="add-info-1" class="addition">
+					Du lịch ngày càng có vai trò rất quan trọng tại Việt Nam. Đối với khách du lịch, họ đi khám phá văn
+					hóa và thiên nhiên, bãi biển và các cựu chiến binh Mỹ và Pháp, Việt Nam đang trở thành một địa điểm
+					du lịch mới ở Đông Nam Á.[4]
+					Nền kinh tế Việt Nam đang chuyển đổi từ nông nghiệp sang nền kinh tế dịch vụ. Hơn một phần ba của
+					tổng sản phẩm trong nước được tạo ra bởi các dịch vụ, trong đó bao gồm khách sạn và phục vụ công
+					nghiệp và giao thông vận tải. Nhà sản xuất và xây dựng (28 %) nông nghiệp, và thuỷ sản (20 %) và
+					khai thác mỏ (10 %).[5]
+				</p>
+			</aside>
+			<div class="information-container">
+				<div class="result">
+					<h1> Kết quả tìm kiếm</h1>
+				</div>
+					{%for post in posts%}
+						<div id="item-{{post.id}}" class = "container item clearfix">
+							<div class="information-title" id ="title-{{post.id}}">
+								<a class="title-name" href="{{post.source}}" title="{{post.title}}">
+									{{post.title}}
+								</a>
+							</div>
+							<div class="information-content">
+								{{post.content}}
+							</div>
+						</div>
+					{%endfor%}
+				<!-- <div id="item-1" class="container item clearfix">
+					<div class="information-title" id="title-1">
+						<a class="title-name" href="https://vnexpress.net/vu-han-hien-gio-ra-sao-4194762.html
+								" title="Vũ Hán hiện giờ ra sao?">
+							Vũ Hán hiện giờ ra sao?
+						</a>
+					</div>
+					<div class="information-content">
+						Video có tiêu đề "Hãy gặp nhau ở Vũ Hán" vừa được Cục Du lịch và Văn hóa Trung Quốc phát hành,
+						nhằm thu hút du khách quay trở lại. Cục đăng kèm lời nhắn trên weibo: "Vũ Hán không bao giờ..
+					</div>
+				</div>
+				<div id="item-2" class="container item clearfix">
+					<div class="information-title" id="title-2">
+						<a class="title-name" href="https://vnexpress.net/hoat-dong-don-mua-le-hoi-tai-phu-quoc-4194553.html
+								" title="Hoạt động đón mùa lễ hội tại Phú Quốc">
+							Hoạt động đón mùa lễ hội tại Phú Quốc
+						</a>
+					</div>
+					<div class="information-content">
+						Tham gia sự kiện tại phố đi bộ, chợ đêm Đã thành thông lệ, mùa lễ hội tại Phú Quốc được người
+						dân và du khách chờ đón. Thời điểm này, các địa điểm công cộng tại đảo Ngọc...
+					</div>
+				</div>
+				<div id="item-3" class="container item clearfix">
+					<div class="information-title" id="title-3">
+						<a class="title-name" href="https://vnexpress.net/travel-blogger-9x-phai-long-khu-nghi-duong-5-sao-tai-phu-quoc-4194875.html
+								" title="Travel blogger 9x 'phải lòng' khu nghỉ dưỡng 5 sao tại Phú Quốc">
+							Travel blogger 9x 'phải lòng' khu nghỉ dưỡng 5 sao tại Phú Quốc
+						</a>
+					</div>
+					<div class="information-content">
+						Câu lạc bộ giải trí ven biển với hồ bơi vô cực, ẩm thực và giải trí bên bãi biển đẹp của đảo
+						ngọc Vinpearl: Một trong những thương hiệu du lịch nghỉ dưỡng lớn nhất Việt Nam,...
+					</div>
+				</div>
+				<div id="item-4" class="container item clearfix">
+					<div class="information-title" id="title-4">
+						<a class="title-name" href="https://vnexpress.net/11-dieu-ban-co-the-chua-biet-ve-thac-niagara-4194387.html
+								" title="11 điều bạn có thể chưa biết về thác Niagara">
+							11 điều bạn có thể chưa biết về thác Niagara
+						</a>
+					</div>
+					<div class="information-content">
+						Niagara gồm ba thác nước riêng biệt Trải dài qua biên giới Mỹ và Canada, thác Niagara bao gồm
+						thác Horseshoe (hay Thác Canada), thác Mỹ và thác Bridal Veil. Cả ba thác
+					</div>
+				</div>
+				<div id="item-5" class="container item clearfix">
+					<div class="information-title" id="title-5">
+						<a class="title-name" href="https://vnexpress.net/4-ngay-quay-tung-phu-quoc-cung-quy-coc-tu-4193994.html
+								" title="4 ngày quậy tung Phú Quốc cùng Quỷ Cốc Tử">
+							4 ngày quậy tung Phú Quốc cùng Quỷ Cốc Tử
+						</a>
+					</div>
+					<div class="information-content">
+						Chương trình có sự đồng hành của: BIM Group: Tập đoàn kinh tế đa ngành phát triển trong lĩnh vực
+						phát triển hạ tầng du lịch và nghỉ dưỡng, sánh tầm quốc tế. InterContinental Phu Quoc Long
+						Beach...
+					</div>
+				</div> -->
+			</div>
+			<aside class="introduction">
+				<h2> Thông tin thêm </h2>
+				<p id="add-info-2" class="addition">
+					Việt Nam là một quốc gia có tiềm năng du lịch đa dạng và phong phú, tiềm năng ấy thể hiện ở các thế
+					mạnh sau:
+					Tính đến năm 2020, Việt Nam có hơn 41.000 di tích, thắng cảnh trong đó có hơn 4.000 di tích được xếp
+					hạng di tích quốc gia và hơn 9.000 di tích được xếp hạng cấp tỉnh.[12][13] Mật độ và số lượng di
+					tích nhiều nhất ở 11 tỉnh vùng đồng bằng sông Hồng với tỷ lệ chiếm khoảng 56% di tích của Việt Nam.
+				</p>
+			</aside>
+		</div>
+	</div>
+	<div class="footer-part clearfix">
+		Author: La Truong Hai
+	</div>
+	{%endblock%}
+	
+	<script type="text/javascript" src='../static/js/script.js'></script>
+</body>
+
+</html>

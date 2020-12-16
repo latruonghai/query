@@ -1,0 +1,48 @@
+/*Tag*/
+h1{
+	color: #282923;
+	font-family: sans-serif, arial, courier;
+	text-align: center;
+	font-size: 150%;
+	transform: translateY(300%);
+}
+body{
+	height: 700px;
+	width: 100%;
+}
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+/*Top*/
+.top-part{
+	height: 30%;
+	width: 100%;
+	background-color: #5abdf4;
+}
+.title-part{
+	width: 33%;
+	height: 100%;
+	float: left;
+	/*transform: translate(100%);*/
+	background-color: rgb(20,140,155);
+	background-image: url();
+}
+.tool-part{
+	width: 33%;
+	height: 100%;
+	float: left;
+
+}
+
+/*Button*/
+.btn-tool{
+	box-sizing:border-box;
+	border-radius: 
+	border-style: solid;
+	padding: 1px;
+	text-align: center;
+	margin-top: 1px;
+	margin-left: 5px;
+}

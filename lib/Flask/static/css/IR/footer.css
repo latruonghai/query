@@ -1,0 +1,14 @@
+/*Footer*/
+footer{
+	padding:15px;
+	margin-top: 2px;
+	text-align: right;
+	background-color: grey;
+	color: gray;
+	height: 5%;
+}
+.footer-part{
+	height: auto;
+	color: black;
+	box-sizing: border-box;
+}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Computer Vision Project</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/top.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/body1.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='image/favicon.ico')}}" type="/image/x-icon">
+		<link rel="icon" href="{{url_for('static', filename='image/favicon.ico')}}" type="image/x-icon">
+		<!-- <link type="text/javascript" src = "{{url_for('static', filename='js/script.js')}}"></link> -->
+{% endblock %}
+
+{% block body %}
+
+<!-- Body part -->
+<div class = "body-part">
+    <div class = "insert-picture">
+        <div class = "insert-container">
+            <input class="picture-name" type="text-name" name="" placeholder="Your Picture">
+            <button class="browse-picture">Browse</button>
+        </div>
+    </div>
+    <div class = "picture">
+        <div class = "picture container">
+            <div class="title-picture" id="picture-1">
+                <h1>Picture 1</h1>
+            </div>
+            <div class = "picture-infor">
+                <div class ="picture-show clearfix">
+                    <img class = "inline-picture" src="../static/image/anh_goc1.jpg" alt="Don't have picture">
+                </div>
+            </div>
+        </div>
+        <div class = "transport">
+            <div class = "btn-block">
+                <div class = "transport-block">
+                    <div class = "btn">
+                        <button class = "btn-transport">
+                            <!-- <i class="ion-android-arrow-forward"></i> -->
+                            Convert
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "picture container">
+            <div class="title-picture" id="picture-2">
+                <h1>Picture 2</h1>
+            </div>
+            <div class = "picture-infor">
+                <div class = "picture-show clearfix">
+                    <img class = "inline-picture" id = "picture-2" src="../static/image/anh_goc.jpg" alt="Don't have picture">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+{% endblock %}
