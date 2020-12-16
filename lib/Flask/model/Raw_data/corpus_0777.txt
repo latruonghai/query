@@ -1,0 +1,15 @@
+
+ TRAVELOKA PAY – Tính năng mới hấp dẫn trên ứng dụng Traveloka   
+Từ tháng 11/2016, Traveloka App giới thiệu đến các khách hàng một tính năng mới mang tên TravelokaPay.
+
+TravelokaPay được phát triển dựa trên những trải nghiệm thanh toán nhanh – an toàn – tiện lợi vốn vẫn là thế mạnh trên ứng dụng Traveloka, thông qua 4 phương thức thanh toán đa dạng:
+ Thẻ thanh toán quốc tế
+ Thẻ ATM nội địa
+ Chuyển khoản (với tài khoản Vietcombank, ACB, VietinBank, Sacombank và Techcombank)
+ Thanh toán tại các cửa hàng tiện lợi có liên kết với Payoo.
+
+Riêng với hình thức Thẻ thanh toán quốc tế, nếu như trước đây tính năng TravelokaQuick cho phép bạn lưu thông tin thẻ để tiện cho những lần thanh toán sau thì nay, tính năng này đã được tích hợp vào trình My Cards (‘Thẻ của tôi’) – một trong những thay đổi mới và tiện dụng hơn của TravelokaPay.
+Vậy, My Cards có gì khác với TravelokaQuick?
+Đầu tiên, My Cards giúp bạn có thể hoàn toàn yên tâm về vấn đề bảo mật khi lưu thông tin thẻ trên ứng dụng Traveloka. Bởi lẽ, My Cards cho phép bạn lựa chọn bảo vệ thông tin thẻ của mình bằng cách yêu cầu chứng thực mã CVV tại mỗi lần thanh toán.
+Cụ thể là khi sử dụng tính năng này, mỗi khi lựa chọn thanh toán với My Cards, ứng dụng Traveloka sẽ yêu cầu bạn nhập mã CVV – một bước để bảo vệ tài khoản của bạn. Tuy nhiên, nếu không muốn nhập mã CVV mỗi khi thanh toán, bạn hoàn toàn có thể tắt tính năng này trong phần ‘Cài đặt’.
+Để tận hưởng những tiện ích mới của TravelokaPay, bạn hãy cập nhật ứng dụng Traveloka phiên bản 2.9 trên App Store (iOS) hoặc Google Play Store (Android) nhé!

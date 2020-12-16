@@ -28,13 +28,13 @@
 				<div class="search-place">
 					<div class="search-box">
 						<form method="post", action='/IR'>
-							<input class="retrieval" type="text-name" name="search-box-name" placeholder="Search">
+							<input class="retrieval" type="text" name="cs" placeholder="Search">
 						</form>
 					</div>
 					<div class="confirm">
-						<form metho="post", action = '/IR'>	
+						<form method="post", action = '/IR'>	
 							<button class="btn-confirm" name="search-btn">Search</button>
-						</form>
+						</form> 
 					</div>
 				</div>
 			</div>
@@ -54,7 +54,7 @@
 			</aside>
 			<div class="information-container">
 				<div class="result">
-					<h1> Kết quả tìm kiếm</h1>
+					<h1> Kết quả tìm kiếm của từ khóa: {%if posts[0]%}{{posts[0].keyword}}{%else%}{%endif%}</h1>
 				</div>
 					{%for post in posts%}
 						<div id="item-{{post.id}}" class = "container item clearfix">

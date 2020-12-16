@@ -1,2 +1,10 @@
-{% extends 'query.html' %}
-
+{% extends 'base.html' %}
+{%block body%}
+    <div>
+        <form action='/IR' method='post'>
+            <input type="text" name="content" id="content">
+            <button>Submit</button>
+        </form>
+    </div>
+    {}
+{%endblock%}
