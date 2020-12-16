@@ -30,7 +30,7 @@ class Todo(db.Model):
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
-        return '<Task %r>' % self.id
+        return '<Task %r>' % self.ids
 
 
 @app.route('/IR', methods=['GET', 'POST'])
@@ -44,8 +44,18 @@ def posts():
         for r in res:
             
             new_post = Todo(ids=r['id'], title=r['title'], content=r['content'], keyword=keywords)
-            db.session.add(new_post)
-        db.session.commit()
+            try:
+                a = Todo.query.filter_by(ids=r['id']).first()
+                a.ids = new_post.ids
+                a.title = new_post.title
+                a.content = new_post.content
+                a.keyword = new_post.keyword
+                a.date_created = new_post.date_created
+                a.completed = new_post.completed
+                db.session.commit()
+            except:
+                db.session.add(new_post)
+                db.session.commit()
         return redirect('/IR')
 
     else:
