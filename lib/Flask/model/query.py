@@ -172,7 +172,7 @@ class Query():
         ----
         self.post (list): list of dictionary with keys ['title', 'id', 'content']
         """
-        res = self.Scalar()
+        res = self.Norm2()
         try:
             for index, doc in enumerate(res):
                 # print(doc[0])
