@@ -1,7 +1,7 @@
 import pickle
 from pyvi import ViTokenizer, ViPosTagger
 import numpy as np
-
+ 
 
 class Query():
     def __init__(self, query, file_path):
@@ -97,32 +97,34 @@ class Query():
             return None
 
     def letQuery(self):
-        res = self.Cosine()
+        res = self.Scalar()
+        try:
+            for index, doc in enumerate(res):
+                # print(doc[0])
+                id = ''
+                temp_post = {}
+                if doc[0] < 10:
+                    id = '000' + str(doc[0])
+                elif doc[0] < 100:
+                    id = '00' + str(doc[0])
+                elif doc[0] < 1000:
+                    id = '0' + str(doc[0])
+                else:
+                    id = str(doc[0])
+                # print(id)
 
-        for index, doc in enumerate(res):
-            # print(doc[0])
-            id = ''
-            temp_post = {}
-            if doc[0] < 10:
-                id = '000' + str(doc[0])
-            elif doc[0] < 100:
-                id = '00' + str(doc[0])
-            elif doc[0] < 1000:
-                id = '0' + str(doc[0])
-            else:
-                id = str(doc[0])
-            # print(id)
+                ori_doc_path = "./model/Raw_data/corpus_"+id+'.txt'
+                # print(path)
 
-            ori_doc_path = "./model/Raw_data/corpus_"+id+'.txt'
-            # print(path)
-
-            with open(ori_doc_path, 'r', encoding="utf8") as f:
-                full_doc = f.readlines()
-                temp_post['id'] = index + 1
-                temp_post['title'] = full_doc[1]
-                temp_post['content'] = "".join(full_doc[2:])[:200] + '...'
-            self.post.append(temp_post)
-        return self.post
+                with open(ori_doc_path, 'r', encoding="utf8") as f:
+                    full_doc = f.readlines()
+                    temp_post['id'] = index + 1
+                    temp_post['title'] = full_doc[1]
+                    temp_post['content'] = "".join(full_doc[2:])[:200] + '...'
+                self.post.append(temp_post)
+            return self.post
+        except TypeError:
+            return None
 
 
 def preprocessing_query(word):

@@ -54,7 +54,12 @@
 			</aside>
 			<div class="information-container">
 				<div class="result">
-					<h1> Kết quả tìm kiếm của từ khóa: {%if posts[0]%}{{posts[0].keyword}}{%else%}{%endif%}</h1>
+					<h1>{%if posts[0]%} 
+						Kết quả tìm kiếm của từ khóa: {{posts[0].keyword}}
+						{%else%}
+						Không tìm được văn bản  từ khóa
+						{%endif%}
+					</h1>
 				</div>
 					{%for post in posts%}
 						<div id="item-{{post.id}}" class = "container item clearfix">

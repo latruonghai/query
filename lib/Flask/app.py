@@ -41,22 +41,26 @@ def posts():
         que = Query(keywords, path)
         res = que.letQuery()
         #print(res)
-        for r in res:
-            
-            new_post = Todo(ids=r['id'], title=r['title'], content=r['content'], keyword=keywords)
-            try:
-                a = Todo.query.filter_by(ids=r['id']).first()
-                a.ids = new_post.ids
-                a.title = new_post.title
-                a.content = new_post.content
-                a.keyword = new_post.keyword
-                a.date_created = new_post.date_created
-                a.completed = new_post.completed
-                db.session.commit()
-            except:
-                db.session.add(new_post)
-                db.session.commit()
-        return redirect('/IR')
+        try:
+            for r in res:
+                
+                new_post = Todo(ids=r['id'], title=r['title'], content=r['content'], keyword=que.query)
+                try:
+                    a = Todo.query.filter_by(ids=r['id']).first()
+                    a.ids = new_post.ids
+                    a.title = new_post.title
+                    a.content = new_post.content
+                    a.keyword = new_post.keyword
+                    a.date_created = new_post.date_created
+                    a.completed = new_post.completed
+                    db.session.commit()
+                except:
+                    db.session.add(new_post)
+                    db.session.commit()
+            return redirect('/IR')
+        except TypeError:
+            delete(Todo.query.all(), db)
+            return redirect('/IR')
 
     else:
         all_posts = Todo.query.order_by(Todo.ids).all()
@@ -69,6 +73,10 @@ def posts():
 def index():
     return render_template('CV.html')
 
+def delete(query, db):
+    for que in query:
+        db.session.delete(que)
+    db.session.commit()
 
 if __name__ == '__main__':
     app.run(debug=True, use_debugger=True, use_reloader=True)
