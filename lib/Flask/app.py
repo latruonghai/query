@@ -6,13 +6,13 @@ import pandas as pd
 
 path = ["./model/weight/new_model.pkl",
         "./model/weight/new_idf_vector.pkl", "./model/weight/new_word.pkl"]
-file_path = ['/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/Okapi BM25/src/weight of Dataset/avgdl.pkl',
-                 '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/Okapi BM25/src/weight of Dataset/dl.pkl',
-                 '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/Okapi BM25/src/weight of Dataset/dltable.pkl',
-                 '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/Okapi BM25/src/weight of Dataset/file2terms.pkl',
-                 '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/Okapi BM25/src/weight of Dataset/files.pkl',
-                 '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/Okapi BM25/src/weight of Dataset/idf.pkl',
-                 '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/Okapi BM25/src/weight of Dataset/invertedIndex.pkl']
+file_path = ['./model/Okapi BM25/src/weight of Dataset/avgdl.pkl',
+                 './model/Okapi BM25/src/weight of Dataset/dl.pkl',
+                 './model/Okapi BM25/src/weight of Dataset/dltable.pkl',
+                 './model/Okapi BM25/src/weight of Dataset/file2terms.pkl',
+                 './model/Okapi BM25/src/weight of Dataset/files.pkl',
+                 './model/Okapi BM25/src/weight of Dataset/idf.pkl',
+                 './model/Okapi BM25/src/weight of Dataset/invertedIndex.pkl']
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///IR_main.db'
