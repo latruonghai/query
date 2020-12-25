@@ -25,6 +25,7 @@ p{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	font-family: UTMNeoSansIntel !important;
 }
 body{
 	height: 850px;
@@ -208,7 +209,7 @@ img{
 }
 .mentor-name{
 	text-align: center;
-	font-family: Tahoma, Palation, Verdana;
+	font-family: UTMNeoSansIntel;
 	font-weight: normal;
 }
 	

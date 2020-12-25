@@ -25,8 +25,8 @@ class Query():
     """
 
     def __init__(self, query, file_path):
-        self.query = preprocessing_query(query)
-        self.model, self.idf_vector, self.words = load_model(file_path)
+        self.query = self.preprocessing_query(query)
+        self.model, self.idf_vector, self.words = self.load_model(file_path)
         self.post = []
 
     def Norm2(self):
@@ -46,6 +46,7 @@ class Query():
         imported by models
         """
         content_query = self.query.split()
+        print('Norm2')
         words_query = list(set(content_query))
         vector_query = []
         res = []
@@ -136,6 +137,8 @@ class Query():
         """
         
         content_query = self.query.split()
+        print(content_query)
+        print('Cosine')
         words_query = list(set(content_query))
         vector_query = []
         res = []
@@ -172,7 +175,7 @@ class Query():
         ----
         self.post (list): list of dictionary with keys ['title', 'id', 'content']
         """
-        res = self.Norm2()
+        res = self.Cosine()
         try:
             for index, doc in enumerate(res):
                 # print(doc[0])
@@ -188,7 +191,7 @@ class Query():
                     id = str(doc[0])
                 # print(id)
 
-                ori_doc_path = "./model/Raw_data/corpus_"+id+'.txt'
+                ori_doc_path = "./Raw_data/corpus_"+id+'.txt'
                 # print(path)
 
                 with open(ori_doc_path, 'r', encoding="utf8") as f:
@@ -202,62 +205,62 @@ class Query():
             return None
 
 
-def preprocessing_query(word):
-    """ 
-    Preprocessing Query: normalize the word to the new type query
-    
-    Return:
-    prew (str): new type of string like: W_W
-    
-    Example:
-    -----
-    Params: word = 'Ha Noi'
-    
-    Return prew = 'Ha_Noi'
-    """
-    
-    dict_path = './model/pro_dictionary.txt'
-    stopword_dict = open(dict_path, "r", encoding="utf8")
-    dict = stopword_dict.read()
-    word = ViTokenizer.tokenize(word)
-    prew = ''
-    for w in word.lower().split():
-        if w not in dict:
-            prew += (w + ' ')
-    return prew
+    def preprocessing_query(self, word):
+        """ 
+        Preprocessing Query: normalize the word to the new type query
+        
+        Return:
+        prew (str): new type of string like: W_W
+        
+        Example:
+        -----
+        Params: word = 'Ha Noi'
+        
+        Return prew = 'Ha_Noi'
+        """
+        
+        dict_path = './pro_dictionary.txt'
+        stopword_dict = open(dict_path, "r", encoding="utf8")
+        dict = stopword_dict.read()
+        word = ViTokenizer.tokenize(word)
+        prew = ''
+        for w in word.lower().split():
+            if w not in dict:
+                prew += (w + ' ')
+        return prew
 
 
-def load_model(file_path):
-    """ 
-    Load the model in file_path
-    Models 're used to make the retrieve's speed faster.
-    
-    Params:
-    -----
-    file_path (list): list contain the path link to the models
-    
-    Return:
-    -----
-    model (list): list of dictionary contain texts
-    
-    words (list): contain words in texts
-    
-    idf_vector (list): list of idf per text
-    """
-    
-    """ file_path = ["./weight/new_model.pkl",
-                 "./weight/new_idf_vector.pkl", "./weight/new_word.pkl"] """
-    # Load Model
-    with open(file_path[0], 'rb') as f:
-        model = pickle.load(f)
-    # Load Idf_vector
-    with open(file_path[1], 'rb') as f:
-        idf_vector = pickle.load(f)
-    # Load Word
-    with open(file_path[2], 'rb') as f:
-        word = pickle.load(f)
+    def load_model(self, file_path):
+        """ 
+        Load the model in file_path
+        Models 're used to make the retrieve's speed faster.
+        
+        Params:
+        -----
+        file_path (list): list contain the path link to the models
+        
+        Return:
+        -----
+        model (list): list of dictionary contain texts
+        
+        words (list): contain words in texts
+        
+        idf_vector (list): list of idf per text
+        """
+        
+        """ file_path = ["./weight/new_model.pkl",
+                    "./weight/new_idf_vector.pkl", "./weight/new_word.pkl"] """
+        # Load Model
+        with open(file_path[0], 'rb') as f:
+            model = pickle.load(f)
+        # Load Idf_vector
+        with open(file_path[1], 'rb') as f:
+            idf_vector = pickle.load(f)
+        # Load Word
+        with open(file_path[2], 'rb') as f:
+            word = pickle.load(f)
 
-    return model, idf_vector, word
+        return model, idf_vector, word
 
 
 if __name__ == "__main__":
@@ -267,9 +270,9 @@ if __name__ == "__main__":
     query = preprocessing_query(query)
     print("After processing", query)
     print("------------------------------------------------\n Kết quả tìm kiếm:") """
-    que = Query('du lich', ["./weight/new_model.pkl",
+    que = Query('du lịch', ["./weight/new_model.pkl",
                             "./weight/new_idf_vector.pkl", "./weight/new_word.pkl"])
-    res = que.Cosine()
+    #res = que.Cosine()
     """ print(res)
     for doc in res:
         # print(doc[0])

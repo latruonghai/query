@@ -89,4 +89,5 @@ if __name__ == "__main__":
     cr = CrawlWiki(url)
     # print(cr.folderContain)
     cr.letCrawl()
+    cr.get_Json()
     cr.get_text()
