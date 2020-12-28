@@ -60,7 +60,7 @@ def posts():
                                 content=r['content'], keyword=que.query, source=sources)
                 try:
                     a = Todo.query.filter_by(ids=r['id']).first()
-                    print(a)
+                    #print(a)
                     a.ids = new_post.ids
                     a.title = new_post.title
                     a.content = new_post.content

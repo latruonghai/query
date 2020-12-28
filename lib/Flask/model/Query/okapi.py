@@ -66,7 +66,7 @@ class Okapi(Query):
                                                      (1 - b + b * self.dl[filename] / self.avgdl))
         return score
 
-    def BM25_score(self, k=1.2, b=0.5):
+    def BM25_score(self):
         '''
         output: a dictionary with filename as key, score as value
         '''
@@ -80,12 +80,13 @@ class Okapi(Query):
     def ranked_doc(self):
         ranked_docs = sorted(self.total_score.items(),
                              key=lambda x: x[1], reverse=True)
-        return ranked_docs[:8]
+        return ranked_docs[:5]
 
     def letQuery(self):
         pattern = '(corpus_\d+.txt)'
         self.BM25_score()
         res = self.ranked_doc()
+        print(res)
         # print(res)
         for index, doc in enumerate(res):
                 # print(doc[0])
