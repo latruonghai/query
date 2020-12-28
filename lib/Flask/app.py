@@ -15,7 +15,7 @@ file_path = ['./model/Okapi BM25/src/weight of Dataset/avgdl.pkl',
                  './model/Okapi BM25/src/weight of Dataset/invertedIndex.pkl']
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///IR_main.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///IR_project.db'
 db = SQLAlchemy(app)
 
 all_post = [
@@ -45,7 +45,7 @@ class Todo(db.Model):
 @app.route('/IR', methods=['GET', 'POST'])
 def posts():
     if request.method == 'POST':
-        df = pd.read_csv('Source.csv')
+        df = pd.read_csv('Source_new.csv')
         keywords = request.form['cs']
         #keywords = 'Đà Lạt'
         que = Okapi(keywords, file_path)

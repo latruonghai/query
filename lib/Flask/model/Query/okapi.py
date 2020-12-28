@@ -80,7 +80,7 @@ class Okapi(Query):
     def ranked_doc(self):
         ranked_docs = sorted(self.total_score.items(),
                              key=lambda x: x[1], reverse=True)
-        return ranked_docs[:5]
+        return ranked_docs[:6]
 
     def letQuery(self):
         pattern = '(corpus_\d+.txt)'
@@ -104,7 +104,7 @@ class Okapi(Query):
             #     id = str(doc[0])
             # print(id)
 
-            ori_doc_path = "./model/raw_dataset/" + name
+            ori_doc_path = "./model/raw_dataset1/" + name
             # print(path)
 
             with open(ori_doc_path, 'r', encoding="utf8") as f:

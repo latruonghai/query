@@ -62,8 +62,9 @@
 					</h1>
 				</div>
 					{%for post in posts%}
-						<div id="item-{{post.id}}" class = "container item clearfix">
-							<div class="information-title" id ="title-{{post.id}}">
+						{%if post.ids!=1%}
+						<div id="item-{{post.ids}}" class = "container item clearfix">
+							<div class="information-title" id ="title-{{post.ids}}">
 								<a class="title-name" href="{{post.source}}" title="{{post.title}}">
 									{{post.title}}
 								</a>
@@ -72,6 +73,7 @@
 								{{post.content}}
 							</div>
 						</div>
+						{%endif%}
 					{%endfor%}
 				<!-- <div id="item-1" class="container item clearfix">
 					<div class="information-title" id="title-1">

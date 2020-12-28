@@ -16,7 +16,7 @@ if __name__ =="__main__":
     a = new_post
     db.session.commit()
     print(a.ids, a.title) '''
-""" import glob
+''' import glob
 import time
 
 
@@ -45,13 +45,17 @@ def checkBreak(path):
     for path in path_files:
         with open(path, 'r') as f:
             content = f.readlines()
-            if content[0] != '\n':
-                return False
+            print(path)
+            try:
+                if content[0] != '\n':
+                    return False
+            except IndexError:
+                continue
     return True
 if __name__ == "__main__":
-    path = "/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/raw_dataset/*.txt"
-    print('File dat chuan' if checkBreak(path) else 'File khong dat yeu cau')
-    processing(path)    """ 
+    path = "/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/raw_dataset1/*.txt"
+    processing(path)
+    print('File dat chuan' if checkBreak(path) else 'File khong dat yeu cau') '''
 """ 
 import csv
 with open('/media/lahai/DATA/Study/DAI_HOC/NamBa/query/data/CSV/vnexpress/du-lich/NZdM.csv') as file:
@@ -108,6 +112,7 @@ def editCSV(path_csv, path_txt):
             name_file = file_txt.split('/')[-1]
             #print(name_file)
             content = f.readlines()
+            print(file_txt)
             title = content[1].replace('\n','').strip()
             #print(title)
             #print(title)
@@ -118,10 +123,10 @@ def editCSV(path_csv, path_txt):
             name[index] = name_file
     #print(len(name))
     new_df = pd.DataFrame({'Files name': name, 'Titles': titles, 'Sources': df['Sources']})
-    new_df.to_csv('Source.csv', header=True, index=None)
+    new_df.to_csv('Source_new.csv', header=True, index=None)
     print('Done')
     
 if __name__ == '__main__':
     path_csv = 'new_CSV.csv'
-    path_txt = '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/raw_dataset/*.txt'
+    path_txt = '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/lib/Flask/model/raw_dataset1/*.txt'
     editCSV(path_csv, path_txt)

@@ -1,0 +1,27 @@
+
+ Traveloka Mách Bạn Cách Tránh Bị Lừa Đảo, Đánh Cắp Thông Tin Thẻ Khi Giao Dịch Trực Tuyến   
+Đánh cắp thông tin cá nhân để trục lợi luôn là nỗi ám ảnh và e ngại đối với người dùng trong quá trình giao dịch trực tuyến. Để tránh các trường hợp lừa đảo, Traveloka đã áp dụng những công nghệ bảo mật dữ liệu hàng đầu để khách hàng yên tâm tận hưởng đặt chỗ.
+Vậy làm thế nào Traveloka có thể đảm bảo an toàn giao dịch cho bạn? Trước hết hãy tìm hiểu xem thông tin thẻ của bạn có thể bị đánh cắp bằng cách nào? Và bằng cách nào bạn có thể đảm bảo an toàn cho thông tin cá nhân?
+1. Hacker “viếng thăm” khi giao dịch thông qua HTTP
+2. “Chọn mặt gửi lầm vàng”
+3. Quá trình gửi/nhận dữ liệu cá nhân không đảm bảo
+4. Tránh bị lừa đảo, an tâm giao dịch qua Traveloka
+1. Hacker “viếng thăm” khi giao dịch thông qua HTTP
+Đối với các trang thương mại điện tử, hình thức thanh toán trực tuyến giúp khách hàng tiết kiệm thời gian chỉ với vài thao tác đơn giản. Tuy nhiên, giao dịch trên internet luôn tiềm ẩn nguy cơ rò rỉ thông tin. 
+Một số người dùng thường không để tâm hoặc không biết sự khác biệt giữa giao thức HTTP và HTTPS, nên không cẩn thận thanh toán đặt chỗ hoặc vé máy bay bằng thẻ thông qua các trang dịch vụ sử dụng giao thức HTTP này. 
+Giải thích đơn giản thì HTTP là hệ thống truyền/nhận thông tin dưới dạng plain text – có nghĩa nó là thông tin thô và chưa được mã hóa, độ bảo mật thấp hơn giao thức HTTPS rất nhiều. Chính điều này khiến cho hacker dễ dàng can thiệp vào quá trình truyền tải để đánh cắp, thậm chí là thay đổi nội dung dữ liệu để trục lợi cho mình. Nó tương tự như việc bạn gửi bưu phẩm nhưng không đóng gói hay niêm phong, bất kỳ ai cũng có thể mở ra xem bên trong có những gì.
+Sai biệt chỉ một chữ “s” này khiến người nhiều không lưu tâm và gây ra rất nhiều tổn hại trong quá trình chuyển khoản bằng thẻ trên internet.
+2. “Chọn mặt gửi lầm vàng”
+Những giao dịch là tương tác hai hoặc đa chiều, vì vậy bảo mật thông tin là nỗ lực từ cả hai phía. Và chính điều này là lỗ hổng cho rất nhiều kẻ có ý đồ đánh cắp thông tin cá nhân nhằm trục lợi. 
+Một số trang trực tuyến đã xây dựng “vẻ ngoài uy tín hoàn hảo” để thu hút người dùng giao dịch với mục đích trực tiếp lưu giữ thông tin thẻ tín dụng của bạn. Sau đó, dùng thông tin này để thu lợi riêng – nghĩa là bạn đã “giao trứng cho ác”. 
+Trường hợp thứ hai chính là, những trang web bạn chọn giao dịch không phải kẻ lừa đảo, nhưng do họ chọn cách giao dịch song phương không qua một lớp bảo mật khác, nên thông tin dễ rò rỉ dù có sử dụng giao thức HTTPS. 
+Nói một cách đơn giản, những giao dịch giữa bạn và các trang này như một “bản đồ kho báu” cho hacker vì chỉ có một đường nối trực tiếp bạn và trang web. Hacker chỉ cần tập trung tấn công vào con đường này để lấy cắp thông tin. Trong khi nếu sử dụng một nguồn hỗ trợ ngoài như các bên quản lý giao dịch thanh toán trực tiếp, thông tin giao dịch sẽ được mã hóa và truyền đi theo rất nhiều con đường khác và khiến cho hacker rất khó truy ra thông tin.
+3. Quá trình gửi/nhận dữ liệu cá nhân không đảm bảo
+Nhiều người dùng có thói quen chọn những trang giao dịch trực tuyến không đòi hỏi đăng ký/đăng nhập vì thấy rườm rà, phức tạp. Nhưng chính thói quen này đã khiến cho thông tin cá nhân của họ rất dễ bị đánh cắp do thiếu lớp bảo vệ sơ cấp nhất. 
+Bên cạnh đó, rất nhiều trang dịch vụ cung cấp giao dịch trực tuyến bằng thẻ nhưng lại không đầu tư vào hệ thống bảo mật đa lớp do không chú trọng khâu này, hoặc không muốn tiêu tốn nhiều tài nguyên mạng cũng như phí vận hành và bảo trì nó.
+4. Tránh bị lừa đảo, an tâm giao dịch qua Traveloka
+Hiểu được những mối nguy trên môi trường internet và những rủi ro khi thanh toán trực tuyến, Traveloka không ngừng cải tiến, nâng cấp và tối ưu hệ thống bảo mật của mình nhằm mang lại sự an tâm tuyệt đối khi đặt chỗ và vé máy bay của khách hàng. 
+Traveloka xây dựng hệ thống mạng riêng tư, được bảo mật bởi giao thức mã hóa đa lớp SSL (HTTPS) 256-bit, tuân thủ 100% tiêu chuẩn bảo mật PCI cho toàn bộ trang web và ứng dụng di động. Thông tin cá nhân của bạn được mã hóa khi giao dịch qua HTTPS nên người ngoài không đọc trộm và chỉnh sửa được, kể cả bạn đang truy cập qua WiFi công cộng. Hiện tại các “ông lớn” trong lĩnh vực trực tuyến như Google, Facebook đều sử dụng giao thức HTTPS này.
+Traveloka cũng không trực tiếp lưu trữ thông thẻ tín dụng của khách hàng mà thông qua CyberSource – nhà cung cấp dịch vụ quản lý giao dịch thanh toán trực tuyến thuộc hàng đầu thế giới (trực thuộc công ty thẻ VISA). Thông tin cá nhân của bạn luôn trong trạng thái bảo mật vì đã được mã hoá và cách ly dưới dạng ‘mã khoá token’ trên máy chủ CyberSource.
+Bên cạnh đó, thông tin cá nhân của bạn được Traveloka cam kết không ai khác ngoài bạn có thể tiếp cận, do tất cả thông tin này chỉ có thể truy cập, kiểm soát bằng cách đăng nhập vào hệ thống với mức độ bảo mật an toàn tuyệt đối. Đặc biệt, các giao dịch của bạn luôn được Traveloka giám sát 24/7 thẩm tra thông qua hệ thống quản lý rủi ro để ngăn chăn các trường hợp lừa đảo, gian lận.
+Với Traveloka, bạn sẽ nhận được xác thực ngay lập tức và vé điện tử qua email trong vòng tối đa 60 phút sau khi hoàn tất thanh toán. Nhanh, gọn, tối ưu hóa và an toàn về bảo mật thông tin tuyệt đối, Traveloka là đại lý du lịch trực tuyến uy tín hiện nay, mang đến cho bạn sự tiện lợi và an tâm để tận hưởng kỳ nghỉ dưỡng hoàn hảo. 
