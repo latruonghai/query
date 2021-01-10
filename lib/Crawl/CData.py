@@ -65,7 +65,7 @@ class CData:
 
 
 if __name__ == "__main__":
-    url = 'https://vi.wikipedia.org/wiki/Việt_Nam'
-    cd = CData(url=url, mode='0', homepage=0, numofPage=10)
+    url = 'https://vnexpress.net/du-lich'
+    cd = CData(url=url, mode='1', numberOfDate=5)
     folderNameParent, folderNameChild = cd.Crawler()
     print(folderNameParent + '/' + folderNameChild)

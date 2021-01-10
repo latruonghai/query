@@ -45,16 +45,22 @@ class CrawlVnE(Crawl):
         out = False
         isReal = 1
         while True:
-
+            # print(dem)
             soup = self.get_page_content(url)
-            sources = [s.find('a').get('href')
-                       for s in soup.findAll('h3', class_='title-news')]
-
+            # print(soup)
+            try:
+                title_new = soup.findAll('h3', class_='title-news')
+                title_new[0]
+            except IndexError:
+                title_new = soup.findAll('h2', class_='title-news')
+            sources = [s.find('a').get('href') for s in title_new]
+            #print('Source', sources)
+            #print('Length', len(sources))
             if len(sources) == 0:
                 isReal = 0
             else:
                 # print(len(sources))
-                print(url)
+                # print(url)
                 for srcs in sources:
 
                     soup = self.get_page_content(srcs)
@@ -84,10 +90,12 @@ class CrawlVnE(Crawl):
             if out:
                 break
             else:
+                #print('isReal = ', isReal)
                 if isReal:
                     url = subUrl(self.url, str(temp+1), isReal)
                 else:
                     url = subUrl(self.url, str(temp), isReal)
+                print(url)
                 temp += 1
         return [titles, Date, src]
 
