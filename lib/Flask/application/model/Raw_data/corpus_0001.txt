@@ -1,0 +1,34 @@
+
+ Hướng dẫn thanh toán bằng thẻ ATM trên Traveloka   
+
+ 
+Với mong muốn đem đến cho bạn sự NHANH CHÓNG, TIỆN LỢI và AN TOÀN khi đặt chỗ, Traveloka đã chính thức chấp nhận thanh toán bằng thẻ ATM đã được kích hoạt chức năng thanh toán trực tuyến qua cổng thanh toán OnePAY.
+ 
+HƯỚNG DẪN THANH TOÁN ĐẶT CHỖ BẰNG THẺ ATM
+ 
+ 
+ 
+DANH SÁCH NGÂN HÀNG PHÁT HÀNH THẺ ATM
+CÓ THỂ THANH TOÁN ĐẶT CHỖ TRÊN TRAVELOKA
+ 
+Để thanh toán thành công thì thẻ ATM của bạn phải là thẻ nội địa có chức năng thanh toán trực tuyến của các ngân hàng sau:
+➢ (Click vào logo ngân hàng phát hành thẻ của bạn để xem các bước hướng dẫn thanh toán chi tiết)
+CÂU HỎI THƯỜNG GẶP KHI THANH TOÁN BẰNG THẺ ATM
+ 
+1) OnePAY là tổ chức nào?
+OnePAY là một trong các nhà cung cấp dịch vụ cổng thanh toán thẻ trực tuyến cho chúng tôi. Bạn có thể tham khảo thông tin về OnePAY tại www.onepay.vn
+2) Làm sao để đăng ký chức năng thanh toán trực tuyến với ngân hàng phát hành thẻ ATM? 
+Tùy theo từng ngân hàng mà bạn có thể đăng ký chức năng thanh toán trực tuyến tại quầy giao dịch của ngân hàng hoặc trên website của ngân hàng. Bạn có thể liên hệ với ngân hàng qua số điện thoại ở mặt sau thẻ ATM để biết thẻ của bạn đã được đăng ký thanh toán trực tuyến hay chưa.
+3) Tại sao thẻ ATM của bạn bị từ chối hoặc giao dịch không thành công?
+Giao dịch thanh toán không thành công có thể do nhiều nguyên nhân. Bạn tham khảo các nguyên nhân sau:
+Chưa đăng ký đủ điều kiện thanh toán trực tuyến với ngân hàng.
+Số dư trên thẻ không đủ để thanh toán.
+Nhập sai thông tin thẻ.
+Để biết nguyên nhân chính xác, vui lòng liên hệ trực tiếp ngân hàng phát hành thẻ của bạn.
+4) Mật khẩu OTP dùng trong giao dịch thanh toán thẻ ATM nội địa là gì?
+OTP (One Time Password) là phương pháp xác thực chủ thẻ do hệ thống của ngân hàng cung cấp qua tin nhắn SMS hoặc do thiết bị Token Key sinh ra với tính năng chỉ sử dụng được một lần duy nhất. Mật khẩu sẽ hết hiệu lực ngay sau khi khách hàng sử dụng mật khẩu (hoặc không sử dụng mật khẩu) trong khoảng thời gian nhất định.
+5) Thông tin thẻ mà bạn đã nhập có được bảo vệ an toàn hay không?
+OnePAY xử lý giao dịch trực tuyến một cách bảo mật trên môi trường Internet bằng cách áp dụng giao thức SSL để mã hoá tất cả các thông tin bạn cung cấp. Ngoài ra, OnePAY còn sử dụng nhiều phần mềm và thuật toán khác để đảm bảo an ninh dữ liệu. Do đó, thông tin thẻ của bạn sẽ được bảo vệ trong suốt quá trình giao dịch.
+6) Bạn phải làm gì nếu không nhận được kết quả thanh toán?
+Nếu đã thanh toán thành công mà vẫn không nhận được bất kỳ thông báo kết quả nào sau 60 phút kể từ thời điểm thanh toán, bạn vui lòng liên hệ với bộ phận hỗ trợ khách hàng của Traveloka ngay lập tức qua số 1900-6978 để được trợ giúp. Bạn không nên thực hiện lại giao dịch để tránh trường hợp bị trừ tiền thêm một lần nữa.
+➢ Để được hỗ trợ trực tiếp liên quan đến việc thanh toán qua OnePAY bạn vui lòng gọi số hotline: 0963 047418 (từ 8h30 – 18h00)
