@@ -44,14 +44,14 @@ class CrawlTraveloka(Crawl):
                 title = item.find(class_='post-title')
                 source = title.get('href')
                 # print(source)
-                title = title.text
+                title = strip(title.text)
                 content = title + '\n' + self.getContent(source)
                 self.contents.append(content)
 
                 titles.append(title)
                 Src.append(source)
             page_num -= 1
-        #print(self.contents)
+        # print(self.contents)
         return [titles, Src]
 
     def getContent(self, source):
@@ -61,6 +61,12 @@ class CrawlTraveloka(Crawl):
         contents = [
             content.text for content in contents if content.text != 'Mục Lục']
         return '\n'.join(contents)
+
+
+def strip(str):
+    new = str.split()
+    # print(new)
+    return " ".join(new)
 
 
 def getSubURL(url, substring):
