@@ -47,8 +47,8 @@ class Crawl:
                 self.pattern, self.url)
         self.contents = []
         print(self.folderNameParent, self.folderNameChild)
-        self.srcFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/src/' + self.folderNameParent
-        self.dataFolder = '/media/lahai/DATA/Study/DAI_HOC/NamBa/query/data/CSV/' + self.folderNameParent
+        self.srcFolder = '../src/' + self.folderNameParent
+        self.dataFolder = '../data/CSV/' + self.folderNameParent
         create_folder(self.srcFolder, self.dataFolder)
         self.srcFolder += '/' + self.folderNameChild
         self.dataFolder += '/' + self.folderNameChild
