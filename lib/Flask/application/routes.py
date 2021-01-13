@@ -4,6 +4,9 @@ from flask import current_app as app
 from .models import db, Todo
 import pandas as pd
 from model.Query.okapi import Okapi
+from preproccessing.Preprocessing import Preprocessing
+import sys
+print(sys.path)
 
 
 file_path = ['./model/Okapi BM25/src/weight of Dataset/avgdl.pkl',
@@ -61,7 +64,7 @@ def index():
 
 @app.route('/Crawl')
 def crawl():
-    
+    pass
 
 def delete(query, db):
     for que in query:
