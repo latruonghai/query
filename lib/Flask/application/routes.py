@@ -1,3 +1,4 @@
+import test
 from flask import request, render_template, make_response, url_for, redirect
 from datetime import datetime
 from flask import current_app as app
@@ -5,6 +6,8 @@ from .models import db, Todo
 import pandas as pd
 from model.Query.okapi import Okapi
 from preproccessing.Preprocessing import Preprocessing
+from crawl.CData import CData
+
 import sys
 print(sys.path)
 
@@ -64,7 +67,7 @@ def index():
 
 @app.route('/Crawl')
 def crawl():
-    pass
+    return render_template('crawl.html')
 
 def delete(query, db):
     for que in query:

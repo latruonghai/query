@@ -4,7 +4,7 @@ from pathlib import Path
 
 base_path = Path(__file__).parent.parent
 sys.path.append(str(base_path))
-print(sys.path)
+print('SYS Path' ,sys.path)
 
 
 app = create_app()

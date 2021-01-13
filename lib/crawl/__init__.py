@@ -6,8 +6,8 @@ import sys
 
 base_path = Path(__file__).parent
 
-file_path = (base_path / "../Flask").resolve()
 
-sys.path.append(str(file_path))
+sys.path.append(str(base_path))
 # print(sys.path)
 
+from Crawl import Crawl

@@ -1,1 +1,0 @@
-Đề bài:Hình dưới đây biểu diễn một cái hồ hình chữ nhật kích thước 26 m x 17 m. Bên trong hồ là hệ thống cầu kính gồm 7 hình vuông giống nhau với 4 điểm chạm nằm trên 4 cạnh hình chữ nhật. Hãy tính diện tích và chu vi của hệ thống cầu kính.Trần Phương
