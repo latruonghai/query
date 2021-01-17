@@ -5,8 +5,8 @@ from flask import current_app as app
 from .models import db, Todo
 import pandas as pd
 from model.Query.okapi import Okapi
-from preproccessing.Preprocessing import Preprocessing
-from crawl.CData import CData
+#from preproccessing.Preprocessing import Preprocessing
+#from crawl.CData import CData
 
 import sys
 print(sys.path)
