@@ -64,6 +64,7 @@ class Okapi(Query):
             wc = len(self.iDex[w][filename])
             score += self.idf[w] * ((wc) * (k+1)) / (wc + k *
                                                      (1 - b + b * self.dl[filename] / self.avgdl))
+            print('Doc lenght:', self.dl[filename])
         return score
 
     def BM25_score(self):
@@ -84,7 +85,7 @@ class Okapi(Query):
 
     def letQuery(self):
         pattern = '(corpus_\d+.txt)'
-        self.BM25_score()
+        # self.BM25_score()
         res = self.ranked_doc()
         print(res)
         # print(res)

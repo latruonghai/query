@@ -68,6 +68,17 @@ class Preprocessing():
         # return (new_csv_file, new_txt_file)
 
     def editCSV(self):
+        ''' 
+        Edit the source CSV into the destination CSV contain:
+        ['Files name', 'Titles', 'Sources']
+        
+        Params:
+        
+        Return:
+        ----
+        A whole new CSV file
+        '''
+        
         df = pd.read_csv(self.new_csv_file)
         print(self.new_csv_file)
         titles = np.array(df['Titles'])
@@ -111,6 +122,7 @@ def create_folder(path):
 def processingPath(path):
     base_path = Path(__file__).parent
     file_path = (base_path / path).resolve()
+    create_folder(file_path)
     return file_path
 
 
